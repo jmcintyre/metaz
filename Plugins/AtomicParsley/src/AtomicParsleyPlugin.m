@@ -155,7 +155,7 @@
             //@"contentRating",
             @"genre",
             @"album", @"albumArtist", @"purchaseDate", @"description",
-            @"longDescription",
+            @"longdesc",
             @"TVShowName", @"TVEpisode",
             @"TVSeasonNum", @"TVEpisodeNum", @"TVNetwork", @"podcastURL",
             @"podcastGUID",@"category", @"keyword", @"advisory",
@@ -468,13 +468,33 @@
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:[atoms count]];
     for(NSString* atom in atoms)
     {
-        NSRange split = [atom rangeOfString:@"\" contains: "];
-        if(split.location == NSNotFound)
-            continue;
-        NSString* type = [atom substringToIndex:split.location];
-        NSString* content = [[atom substringFromIndex:split.location+split.length] 
-                stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        [dict setObject:content forKey:type];
+        // Example reverse dns:
+        // ----" [com.apple.iTunes;iTunEXTC] contains: mpaa|PG-13|300|
+        if( atom.length > 7 && [[atom substringToIndex:7] compare:@"----\" ["] == NSOrderedSame )
+        {
+            NSRange split = [atom rangeOfString:@"] contains: "];
+            if( split.location != NSNotFound )
+            {
+                NSRange typeRange = {7, split.location - 7};
+                NSString* type = [atom substringWithRange:typeRange];
+                NSString* content = [[atom substringFromIndex:split.location+split.length]
+                                     stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                [dict setObject:content forKey:type];
+            }
+        }
+        // Example standard:
+        // gnre" contains: Comedy
+        else
+        {
+            NSRange split = [atom rangeOfString:@"\" contains: "];
+            if( split.location != NSNotFound )
+            {
+                NSString* type = [atom substringToIndex:split.location];
+                NSString* content = [[atom substringFromIndex:split.location+split.length]
+                                     stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                [dict setObject:content forKey:type];
+            }
+        }
     }
     
     // Initialize a null value for all known keys
