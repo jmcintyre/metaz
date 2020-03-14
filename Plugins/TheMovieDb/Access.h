@@ -1,2 +1,0 @@
-#define THEMOVIEDB_API_KEY @"a2d6b9d31ed78237618c953eb2df504d"
-
