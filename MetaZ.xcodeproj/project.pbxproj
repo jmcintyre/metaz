@@ -88,8 +88,6 @@
 		1B26BA8B164B687B00238517 /* MZComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BA8A164B687B00238517 /* MZComboBox.m */; };
 		1B26BAC3164C3BA400238517 /* FilesArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BAC2164C3BA400238517 /* FilesArrayController.m */; };
 		1B27653A240B5F2900723C13 /* Data+Base64URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B276539240B5F2900723C13 /* Data+Base64URL.swift */; };
-		1B299D7314AE43900048B7C0 /* TheMovieDbSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B299D7214AE43900048B7C0 /* TheMovieDbSearch.m */; };
-		1B299DB714AE4D3A0048B7C0 /* TheMovieDb.mzsearchprovider in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 1B8CB90B14ACD62000F859F7 /* TheMovieDb.mzsearchprovider */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1B2AEED611A0EC430074BAAD /* MZFileNameTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AEED511A0EC430074BAAD /* MZFileNameTextStorage.m */; };
 		1B3185871841E167001EDE79 /* NSData+MZCleanUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3185851841E167001EDE79 /* NSData+MZCleanUTF8.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B3185881841E167001EDE79 /* NSData+MZCleanUTF8.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3185861841E167001EDE79 /* NSData+MZCleanUTF8.m */; };
@@ -105,7 +103,6 @@
 		1B35446915B1D96B0033DD74 /* MetaZ.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1B35446815B1D96B0033DD74 /* MetaZ.sdef */; };
 		1B3544E815B2160F0033DD74 /* MetaZApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3544E715B2160F0033DD74 /* MetaZApplication.m */; };
 		1B35453115B223BB0033DD74 /* MZMetaDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B35453015B223BB0033DD74 /* MZMetaDataDocument.m */; };
-		1B36E75E1406612F009F542A /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B523B4D13F4B2B500C20B7D /* ASIDataCompressor.m */; };
 		1B38FCDA1673F7E500C171F9 /* NSString+MimeTypePattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B38FCD81673F7E500C171F9 /* NSString+MimeTypePattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B38FCDB1673F7E500C171F9 /* NSString+MimeTypePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B38FCD91673F7E500C171F9 /* NSString+MimeTypePattern.m */; settings = {COMPILER_FLAGS = "-Wno-comment"; }; };
 		1B3AD7D811057E9200B33F85 /* MZErrorOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3AD7D611057E9200B33F85 /* MZErrorOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,27 +118,13 @@
 		1B4499D210D9A5CE00B9C751 /* PresetSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4499D110D9A5CE00B9C751 /* PresetSegmentedControl.m */; };
 		1B449B8810DC7DE400B9C751 /* ChaptersTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B449B8710DC7DE400B9C751 /* ChaptersTableView.m */; };
 		1B492FAB1F65537800A2FD3F /* Quit MetaZ.scpt in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 1B492FA71F65537800A2FD3F /* Quit MetaZ.scpt */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1B492FAC1F65537800A2FD3F /* Update iTunes.scpt in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 1B492FA81F65537800A2FD3F /* Update iTunes.scpt */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1B4AF83B1170CFCC00E5C969 /* TheTVDBSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4AF83A1170CFCC00E5C969 /* TheTVDBSearch.m */; };
 		1B4AF84511715C8400E5C969 /* languages.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1B4AF84411715C8400E5C969 /* languages.xml */; };
 		1B4C1F4016554B0100011621 /* MZHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B4C1F3C1655490D00011621 /* MZHTTPRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B4C1F4116554B0600011621 /* MZHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C1F3D1655490D00011621 /* MZHTTPRequest.m */; };
 		1B4CFFE8161CE0ED00B12009 /* AEVTBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4CFF90161CDF0100B12009 /* AEVTBuilder.m */; };
-		1B4F53C4116E9F44003221B1 /* MetaZKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA325C410545ACA00276F57 /* MetaZKit.framework */; };
-		1B4F53D8116EA0BE003221B1 /* TheTVDB.mzsearchprovider in Copy Plugins */ = {isa = PBXBuildFile; fileRef = 1B4F53C9116E9F44003221B1 /* TheTVDB.mzsearchprovider */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1B4F53DF116EA1B5003221B1 /* TheTVDBPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F53DE116EA1B5003221B1 /* TheTVDBPlugin.m */; };
 		1B523C0F13F4B3F500C20B7D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B523B8813F4B39400C20B7D /* SystemConfiguration.framework */; };
-		1B523C1413FDCC9600C20B7D /* ASIHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B5413F4B2B500C20B7D /* ASIHTTPRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B523C1513FDCC9600C20B7D /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B523B5513F4B2B500C20B7D /* ASIHTTPRequest.m */; };
-		1B523C4013FDCCC300C20B7D /* ASIDownloadCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B5013F4B2B500C20B7D /* ASIDownloadCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B523C4113FDCCC300C20B7D /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B523B5113F4B2B500C20B7D /* ASIDownloadCache.m */; };
-		1B523C4513FDCCD000C20B7D /* ASIInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B5813F4B2B500C20B7D /* ASIInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B523C4613FDCCD000C20B7D /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B523B5913F4B2B500C20B7D /* ASIInputStream.m */; };
-		1B523C4A13FDCCDA00C20B7D /* ASIDataDecompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B4E13F4B2B500C20B7D /* ASIDataDecompressor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B523C4B13FDCCDA00C20B7D /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B523B4F13F4B2B500C20B7D /* ASIDataDecompressor.m */; };
-		1B523C4F13FDCD1A00C20B7D /* ASICacheDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B4B13F4B2B500C20B7D /* ASICacheDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B523C5013FDCD1A00C20B7D /* ASIHTTPRequestConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B5613F4B2B500C20B7D /* ASIHTTPRequestConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B523C5113FDCD1A00C20B7D /* ASIHTTPRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B5713F4B2B500C20B7D /* ASIHTTPRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B523C5213FDCD1A00C20B7D /* ASIProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B523B5C13F4B2B500C20B7D /* ASIProgressDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B5AC76F10532E5200F9CE36 /* MetaEditPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5AC76E10532E5200F9CE36 /* MetaEditPanel.m */; };
 		1B63A1D31644D8D100461FC9 /* MZArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B63A1D21644D8D100461FC9 /* MZArrayController.m */; };
 		1B6E43CB108468B100DFE165 /* MZSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B6E43C9108468B100DFE165 /* MZSearchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -184,8 +167,6 @@
 		1B8CB5E214AA31C500F859F7 /* modified_header.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1B8CB5DF14AA31C500F859F7 /* modified_header.tiff */; };
 		1B8CB5E314AA31C500F859F7 /* modified_selected.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1B8CB5E014AA31C500F859F7 /* modified_selected.tiff */; };
 		1B8CB5E414AA31C500F859F7 /* modified.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1B8CB5E114AA31C500F859F7 /* modified.tiff */; };
-		1B8CB94F14ACD6FF00F859F7 /* MetaZKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA325C410545ACA00276F57 /* MetaZKit.framework */; };
-		1B8CB96314AE3B2000F859F7 /* TheMovieDbPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CB96214AE3B2000F859F7 /* TheMovieDbPlugin.m */; };
 		1B8E95711401BE7F006227B4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B523B9013F4B3BE00C20B7D /* libz.dylib */; };
 		1B8E96321401BE86006227B4 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B523B9613F4B3D900C20B7D /* CoreServices.framework */; };
 		1B92BB1C10876FBA0057EFD7 /* PureMetaEdits.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B92BB1A10876FBA0057EFD7 /* PureMetaEdits.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -322,13 +303,6 @@
 			remoteGlobalIDString = 1B2022F810B393CA00EE548A;
 			remoteInfo = "Plist Marcos";
 		};
-		1B299DA314AE4D2A0048B7C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B8CB90A14ACD62000F859F7;
-			remoteInfo = TheMovieDb;
-		};
 		1B3185A21841E9D6001EDE79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -349,27 +323,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1B3185A01841E9D6001EDE79;
 			remoteInfo = OSXNotificationPlugin;
-		};
-		1B4F53B5116E9F44003221B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B2022F810B393CA00EE548A;
-			remoteInfo = "Plist Marcos";
-		};
-		1B4F53B7116E9F44003221B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1BA325C310545ACA00276F57;
-			remoteInfo = MetaZKit;
-		};
-		1B4F53D1116EA0B7003221B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B4F53B3116E9F44003221B1;
-			remoteInfo = TheTVDB;
 		};
 		1B76F8E82415C0A700CB8810 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -419,20 +372,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1B7FF3E324047EE3001457CE;
 			remoteInfo = TheTVDB3;
-		};
-		1B8CB91114ACD63100F859F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1BA325C310545ACA00276F57;
-			remoteInfo = MetaZKit;
-		};
-		1B8CB91314ACD6B300F859F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B2022F810B393CA00EE548A;
-			remoteInfo = "Plist Marcos";
 		};
 		1BA325CB10545BAE00276F57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -505,8 +444,6 @@
 				1B492FAB1F65537800A2FD3F /* Quit MetaZ.scpt in Copy Plugins */,
 				1B3185B81841EB18001EDE79 /* OSXNotification.mzactions in Copy Plugins */,
 				1BD562471648F43A00F9C579 /* AlertWindow.mzactions in Copy Plugins */,
-				1B299DB714AE4D3A0048B7C0 /* TheMovieDb.mzsearchprovider in Copy Plugins */,
-				1B4F53D8116EA0BE003221B1 /* TheTVDB.mzsearchprovider in Copy Plugins */,
 				1BEA6F33106EF6FC004B1A7F /* AtomicParsley.mzdataprovider in Copy Plugins */,
 			);
 			name = "Copy Plugins";
@@ -607,9 +544,6 @@
 		1B2861D322B9EF1A00A37DEF /* release-notes.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; name = "release-notes.rb"; path = "Scripts/release-notes.rb"; sourceTree = "<group>"; };
 		1B2861D422B9EF1A00A37DEF /* decrypt.bash */ = {isa = PBXFileReference; lastKnownFileType = text; name = decrypt.bash; path = Scripts/decrypt.bash; sourceTree = "<group>"; };
 		1B2861D522B9EF1A00A37DEF /* trigger-site.bash */ = {isa = PBXFileReference; lastKnownFileType = text; name = "trigger-site.bash"; path = "Scripts/trigger-site.bash"; sourceTree = "<group>"; };
-		1B299D6C14AE3CF50048B7C0 /* TheMovieDbPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheMovieDbPlugin.h; sourceTree = "<group>"; };
-		1B299D7114AE43900048B7C0 /* TheMovieDbSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheMovieDbSearch.h; sourceTree = "<group>"; };
-		1B299D7214AE43900048B7C0 /* TheMovieDbSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheMovieDbSearch.m; sourceTree = "<group>"; };
 		1B2AEED411A0EC430074BAAD /* MZFileNameTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFileNameTextStorage.h; sourceTree = "<group>"; };
 		1B2AEED511A0EC430074BAAD /* MZFileNameTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFileNameTextStorage.m; sourceTree = "<group>"; };
 		1B3185851841E167001EDE79 /* NSData+MZCleanUTF8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MZCleanUTF8.h"; sourceTree = "<group>"; };
@@ -657,6 +591,7 @@
 		1B492F981F65530500A2FD3F /* Update iTunes.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = "Update iTunes.applescript"; path = "AppleScript/Update iTunes.applescript"; sourceTree = "<group>"; };
 		1B492FA61F65537800A2FD3F /* Example Actions.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Example Actions.scpt"; path = "AppleScript/Example Actions.scpt"; sourceTree = "<group>"; };
 		1B492FA71F65537800A2FD3F /* Quit MetaZ.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quit MetaZ.scpt"; path = "AppleScript/Quit MetaZ.scpt"; sourceTree = "<group>"; };
+		1B492FA81F65537800A2FD3F /* Update iTunes.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Update iTunes.scpt"; path = "AppleScript/Update iTunes.scpt"; sourceTree = "<group>"; };
 		1B4AF74B116EF80500E5C969 /* Access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Access.h; path = Plugins/TheTVDB/Access.h; sourceTree = SOURCE_ROOT; };
 		1B4AF8391170CFCC00E5C969 /* TheTVDBSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheTVDBSearch.h; sourceTree = "<group>"; };
 		1B4AF83A1170CFCC00E5C969 /* TheTVDBSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheTVDBSearch.m; sourceTree = "<group>"; };
@@ -665,63 +600,10 @@
 		1B4C1F3D1655490D00011621 /* MZHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZHTTPRequest.m; sourceTree = "<group>"; };
 		1B4CFF8F161CDF0100B12009 /* AEVTBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEVTBuilder.h; sourceTree = "<group>"; };
 		1B4CFF90161CDF0100B12009 /* AEVTBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEVTBuilder.m; sourceTree = "<group>"; };
-		1B4F5394116E9EFC003221B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		1B4F53C9116E9F44003221B1 /* TheTVDB.mzsearchprovider */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheTVDB.mzsearchprovider; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B4F53DD116EA1B5003221B1 /* TheTVDBPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheTVDBPlugin.h; sourceTree = "<group>"; };
-		1B4F53DE116EA1B5003221B1 /* TheTVDBPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheTVDBPlugin.m; sourceTree = "<group>"; };
 		1B521CEA1F65558600979D60 /* document_types.bash */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = document_types.bash; path = Scripts/document_types.bash; sourceTree = "<group>"; };
 		1B521CEB1F65558600979D60 /* make_diskimage.bash */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = make_diskimage.bash; path = Scripts/make_diskimage.bash; sourceTree = "<group>"; };
 		1B521CEC1F65558600979D60 /* plist.bash */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = plist.bash; path = Scripts/plist.bash; sourceTree = "<group>"; };
 		1B521CED1F65558600979D60 /* sparkle_sign.bash */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sparkle_sign.bash; path = Scripts/sparkle_sign.bash; sourceTree = "<group>"; };
-		1B523B4913F4B2B500C20B7D /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = "Externals/asi-http-request/Classes/ASIAuthenticationDialog.h"; sourceTree = "<group>"; };
-		1B523B4A13F4B2B500C20B7D /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIAuthenticationDialog.m; path = "Externals/asi-http-request/Classes/ASIAuthenticationDialog.m"; sourceTree = "<group>"; };
-		1B523B4B13F4B2B500C20B7D /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASICacheDelegate.h; path = "Externals/asi-http-request/Classes/ASICacheDelegate.h"; sourceTree = "<group>"; };
-		1B523B4C13F4B2B500C20B7D /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDataCompressor.h; path = "Externals/asi-http-request/Classes/ASIDataCompressor.h"; sourceTree = "<group>"; };
-		1B523B4D13F4B2B500C20B7D /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIDataCompressor.m; path = "Externals/asi-http-request/Classes/ASIDataCompressor.m"; sourceTree = "<group>"; };
-		1B523B4E13F4B2B500C20B7D /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDataDecompressor.h; path = "Externals/asi-http-request/Classes/ASIDataDecompressor.h"; sourceTree = "<group>"; };
-		1B523B4F13F4B2B500C20B7D /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIDataDecompressor.m; path = "Externals/asi-http-request/Classes/ASIDataDecompressor.m"; sourceTree = "<group>"; };
-		1B523B5013F4B2B500C20B7D /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDownloadCache.h; path = "Externals/asi-http-request/Classes/ASIDownloadCache.h"; sourceTree = "<group>"; };
-		1B523B5113F4B2B500C20B7D /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIDownloadCache.m; path = "Externals/asi-http-request/Classes/ASIDownloadCache.m"; sourceTree = "<group>"; };
-		1B523B5213F4B2B500C20B7D /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIFormDataRequest.h; path = "Externals/asi-http-request/Classes/ASIFormDataRequest.h"; sourceTree = "<group>"; };
-		1B523B5313F4B2B500C20B7D /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIFormDataRequest.m; path = "Externals/asi-http-request/Classes/ASIFormDataRequest.m"; sourceTree = "<group>"; };
-		1B523B5413F4B2B500C20B7D /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequest.h; path = "Externals/asi-http-request/Classes/ASIHTTPRequest.h"; sourceTree = "<group>"; };
-		1B523B5513F4B2B500C20B7D /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIHTTPRequest.m; path = "Externals/asi-http-request/Classes/ASIHTTPRequest.m"; sourceTree = "<group>"; };
-		1B523B5613F4B2B500C20B7D /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestConfig.h; path = "Externals/asi-http-request/Classes/ASIHTTPRequestConfig.h"; sourceTree = "<group>"; };
-		1B523B5713F4B2B500C20B7D /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestDelegate.h; path = "Externals/asi-http-request/Classes/ASIHTTPRequestDelegate.h"; sourceTree = "<group>"; };
-		1B523B5813F4B2B500C20B7D /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIInputStream.h; path = "Externals/asi-http-request/Classes/ASIInputStream.h"; sourceTree = "<group>"; };
-		1B523B5913F4B2B500C20B7D /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIInputStream.m; path = "Externals/asi-http-request/Classes/ASIInputStream.m"; sourceTree = "<group>"; };
-		1B523B5A13F4B2B500C20B7D /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASINetworkQueue.h; path = "Externals/asi-http-request/Classes/ASINetworkQueue.h"; sourceTree = "<group>"; };
-		1B523B5B13F4B2B500C20B7D /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASINetworkQueue.m; path = "Externals/asi-http-request/Classes/ASINetworkQueue.m"; sourceTree = "<group>"; };
-		1B523B5C13F4B2B500C20B7D /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = "Externals/asi-http-request/Classes/ASIProgressDelegate.h"; sourceTree = "<group>"; };
-		1B523B5E13F4B2B500C20B7D /* ASIWebPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIWebPageRequest.h; sourceTree = "<group>"; };
-		1B523B5F13F4B2B500C20B7D /* ASIWebPageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIWebPageRequest.m; sourceTree = "<group>"; };
-		1B523B6113F4B2B500C20B7D /* ASICloudFilesCDNRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesCDNRequest.h; sourceTree = "<group>"; };
-		1B523B6213F4B2B500C20B7D /* ASICloudFilesCDNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesCDNRequest.m; sourceTree = "<group>"; };
-		1B523B6313F4B2B500C20B7D /* ASICloudFilesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainer.h; sourceTree = "<group>"; };
-		1B523B6413F4B2B500C20B7D /* ASICloudFilesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainer.m; sourceTree = "<group>"; };
-		1B523B6513F4B2B500C20B7D /* ASICloudFilesContainerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerRequest.h; sourceTree = "<group>"; };
-		1B523B6613F4B2B500C20B7D /* ASICloudFilesContainerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerRequest.m; sourceTree = "<group>"; };
-		1B523B6713F4B2B500C20B7D /* ASICloudFilesContainerXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerXMLParserDelegate.h; sourceTree = "<group>"; };
-		1B523B6813F4B2B500C20B7D /* ASICloudFilesContainerXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerXMLParserDelegate.m; sourceTree = "<group>"; };
-		1B523B6913F4B2B500C20B7D /* ASICloudFilesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObject.h; sourceTree = "<group>"; };
-		1B523B6A13F4B2B500C20B7D /* ASICloudFilesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObject.m; sourceTree = "<group>"; };
-		1B523B6B13F4B2B500C20B7D /* ASICloudFilesObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObjectRequest.h; sourceTree = "<group>"; };
-		1B523B6C13F4B2B500C20B7D /* ASICloudFilesObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObjectRequest.m; sourceTree = "<group>"; };
-		1B523B6D13F4B2B500C20B7D /* ASICloudFilesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesRequest.h; sourceTree = "<group>"; };
-		1B523B6E13F4B2B500C20B7D /* ASICloudFilesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesRequest.m; sourceTree = "<group>"; };
-		1B523B7013F4B2B500C20B7D /* ASINSXMLParserCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINSXMLParserCompat.h; sourceTree = "<group>"; };
-		1B523B7113F4B2B500C20B7D /* ASIS3Bucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Bucket.h; sourceTree = "<group>"; };
-		1B523B7213F4B2B500C20B7D /* ASIS3Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Bucket.m; sourceTree = "<group>"; };
-		1B523B7313F4B2B500C20B7D /* ASIS3BucketObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketObject.h; sourceTree = "<group>"; };
-		1B523B7413F4B2B500C20B7D /* ASIS3BucketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketObject.m; sourceTree = "<group>"; };
-		1B523B7513F4B2B500C20B7D /* ASIS3BucketRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketRequest.h; sourceTree = "<group>"; };
-		1B523B7613F4B2B500C20B7D /* ASIS3BucketRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketRequest.m; sourceTree = "<group>"; };
-		1B523B7713F4B2B500C20B7D /* ASIS3ObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ObjectRequest.h; sourceTree = "<group>"; };
-		1B523B7813F4B2B500C20B7D /* ASIS3ObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ObjectRequest.m; sourceTree = "<group>"; };
-		1B523B7913F4B2B500C20B7D /* ASIS3Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Request.h; sourceTree = "<group>"; };
-		1B523B7A13F4B2B500C20B7D /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
-		1B523B7B13F4B2B500C20B7D /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
-		1B523B7C13F4B2B500C20B7D /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
 		1B523B8813F4B39400C20B7D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1B523B9013F4B3BE00C20B7D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1B523B9613F4B3D900C20B7D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -791,10 +673,6 @@
 		1B8CB5DF14AA31C500F859F7 /* modified_header.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = modified_header.tiff; path = App/resources/modified_header.tiff; sourceTree = "<group>"; };
 		1B8CB5E014AA31C500F859F7 /* modified_selected.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = modified_selected.tiff; path = App/resources/modified_selected.tiff; sourceTree = "<group>"; };
 		1B8CB5E114AA31C500F859F7 /* modified.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = modified.tiff; path = App/resources/modified.tiff; sourceTree = "<group>"; };
-		1B8CB90B14ACD62000F859F7 /* TheMovieDb.mzsearchprovider */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieDb.mzsearchprovider; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B8CB95014ACD77800F859F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TheMovieDb/Info.plist; sourceTree = "<group>"; };
-		1B8CB96214AE3B2000F859F7 /* TheMovieDbPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheMovieDbPlugin.m; sourceTree = "<group>"; };
-		1B8CB97F14AE3C1800F859F7 /* Access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Access.h; path = Plugins/TheMovieDb/Access.h; sourceTree = SOURCE_ROOT; };
 		1B92BB1A10876FBA0057EFD7 /* PureMetaEdits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureMetaEdits.h; sourceTree = "<group>"; };
 		1B92BB1B10876FBA0057EFD7 /* PureMetaEdits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PureMetaEdits.m; sourceTree = "<group>"; };
 		1B92BB6E108787260057EFD7 /* SearchProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProfile.h; sourceTree = "<group>"; };
@@ -941,14 +819,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B4F53C3116E9F44003221B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B4F53C4116E9F44003221B1 /* MetaZKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1B7B103B240603930018DB18 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -962,14 +832,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7FF3EE24047EE3001457CE /* MetaZKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1B8CB90914ACD62000F859F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B8CB94F14ACD6FF00F859F7 /* MetaZKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,8 +933,6 @@
 				1B6E43D610846BDA00DFE165 /* TagData.h */,
 				1B92BB1A10876FBA0057EFD7 /* PureMetaEdits.h */,
 				1B92BB1B10876FBA0057EFD7 /* PureMetaEdits.m */,
-				1B4C1F3C1655490D00011621 /* MZHTTPRequest.h */,
-				1B4C1F3D1655490D00011621 /* MZHTTPRequest.m */,
 				1B0330AB10B1010700B28E3A /* NSDate+UTC.h */,
 				1B0330AC10B1010700B28E3A /* NSDate+UTC.m */,
 				1BAD35FC118D4C470052DE3B /* NSFileManager+MZCreate.h */,
@@ -1143,8 +1003,6 @@
 				8D1107320486CEB800E47090 /* MetaZ.app */,
 				1BEA6E72106EF2A0004B1A7F /* AtomicParsley.mzdataprovider */,
 				1B03304310B0CD3C00B28E3A /* MetaZKitTest.octest */,
-				1B4F53C9116E9F44003221B1 /* TheTVDB.mzsearchprovider */,
-				1B8CB90B14ACD62000F859F7 /* TheMovieDb.mzsearchprovider */,
 				1BD562071648F17C00F9C579 /* AlertWindow.mzactions */,
 				1B3185B21841E9D6001EDE79 /* OSXNotification.mzactions */,
 				1B7FF3F324047EE3001457CE /* TheTVDB3.mzsearchprovider */,
@@ -1239,7 +1097,6 @@
 				1BA9B57F2089580C00DDC17F /* Checkouts */,
 				1B4CFF8E161CDED800B12009 /* AEVTBuilder */,
 				1B069665149BD32D00B5FA90 /* MGViewAnimation */,
-				1B523B4813F4B24E00C20B7D /* asi-http-request */,
 				1B42F21910DD534500AFEBF6 /* UKDockProgressIndicator */,
 				1B449D1910DCCBA800B9C751 /* GTM */,
 				1B449D1610DCCB0500B9C751 /* hmac */,
@@ -1320,39 +1177,6 @@
 			path = Externals/AEVTBuilder;
 			sourceTree = "<group>";
 		};
-		1B4F538D116E9E1F003221B1 /* TheTVDB */ = {
-			isa = PBXGroup;
-			children = (
-				1B4F538F116E9E33003221B1 /* Classes */,
-				1B4F538E116E9E2C003221B1 /* Resources */,
-			);
-			includeInIndex = 1;
-			name = TheTVDB;
-			sourceTree = "<group>";
-		};
-		1B4F538E116E9E2C003221B1 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1B4AF84411715C8400E5C969 /* languages.xml */,
-				1B4F5394116E9EFC003221B1 /* Info.plist */,
-			);
-			name = Resources;
-			path = TheTVDB/resources;
-			sourceTree = "<group>";
-		};
-		1B4F538F116E9E33003221B1 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				1B4AF74B116EF80500E5C969 /* Access.h */,
-				1B4F53DD116EA1B5003221B1 /* TheTVDBPlugin.h */,
-				1B4F53DE116EA1B5003221B1 /* TheTVDBPlugin.m */,
-				1B4AF8391170CFCC00E5C969 /* TheTVDBSearch.h */,
-				1B4AF83A1170CFCC00E5C969 /* TheTVDBSearch.m */,
-			);
-			name = Classes;
-			path = TheTVDB/src;
-			sourceTree = "<group>";
-		};
 		1B521CE91F65557100979D60 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1368,89 +1192,6 @@
 				1B76F8EF24169BCA00CB8810 /* sign_applescript.bash */,
 			);
 			name = Scripts;
-			sourceTree = "<group>";
-		};
-		1B523B4813F4B24E00C20B7D /* asi-http-request */ = {
-			isa = PBXGroup;
-			children = (
-				1B523B4913F4B2B500C20B7D /* ASIAuthenticationDialog.h */,
-				1B523B4A13F4B2B500C20B7D /* ASIAuthenticationDialog.m */,
-				1B523B4B13F4B2B500C20B7D /* ASICacheDelegate.h */,
-				1B523B4C13F4B2B500C20B7D /* ASIDataCompressor.h */,
-				1B523B4D13F4B2B500C20B7D /* ASIDataCompressor.m */,
-				1B523B4E13F4B2B500C20B7D /* ASIDataDecompressor.h */,
-				1B523B4F13F4B2B500C20B7D /* ASIDataDecompressor.m */,
-				1B523B5013F4B2B500C20B7D /* ASIDownloadCache.h */,
-				1B523B5113F4B2B500C20B7D /* ASIDownloadCache.m */,
-				1B523B5213F4B2B500C20B7D /* ASIFormDataRequest.h */,
-				1B523B5313F4B2B500C20B7D /* ASIFormDataRequest.m */,
-				1B523B5413F4B2B500C20B7D /* ASIHTTPRequest.h */,
-				1B523B5513F4B2B500C20B7D /* ASIHTTPRequest.m */,
-				1B523B5613F4B2B500C20B7D /* ASIHTTPRequestConfig.h */,
-				1B523B5713F4B2B500C20B7D /* ASIHTTPRequestDelegate.h */,
-				1B523B5813F4B2B500C20B7D /* ASIInputStream.h */,
-				1B523B5913F4B2B500C20B7D /* ASIInputStream.m */,
-				1B523B5A13F4B2B500C20B7D /* ASINetworkQueue.h */,
-				1B523B5B13F4B2B500C20B7D /* ASINetworkQueue.m */,
-				1B523B5C13F4B2B500C20B7D /* ASIProgressDelegate.h */,
-				1B523B5D13F4B2B500C20B7D /* ASIWebPageRequest */,
-				1B523B6013F4B2B500C20B7D /* CloudFiles */,
-				1B523B6F13F4B2B500C20B7D /* S3 */,
-			);
-			name = "asi-http-request";
-			sourceTree = "<group>";
-		};
-		1B523B5D13F4B2B500C20B7D /* ASIWebPageRequest */ = {
-			isa = PBXGroup;
-			children = (
-				1B523B5E13F4B2B500C20B7D /* ASIWebPageRequest.h */,
-				1B523B5F13F4B2B500C20B7D /* ASIWebPageRequest.m */,
-			);
-			name = ASIWebPageRequest;
-			path = "Externals/asi-http-request/Classes/ASIWebPageRequest";
-			sourceTree = "<group>";
-		};
-		1B523B6013F4B2B500C20B7D /* CloudFiles */ = {
-			isa = PBXGroup;
-			children = (
-				1B523B6113F4B2B500C20B7D /* ASICloudFilesCDNRequest.h */,
-				1B523B6213F4B2B500C20B7D /* ASICloudFilesCDNRequest.m */,
-				1B523B6313F4B2B500C20B7D /* ASICloudFilesContainer.h */,
-				1B523B6413F4B2B500C20B7D /* ASICloudFilesContainer.m */,
-				1B523B6513F4B2B500C20B7D /* ASICloudFilesContainerRequest.h */,
-				1B523B6613F4B2B500C20B7D /* ASICloudFilesContainerRequest.m */,
-				1B523B6713F4B2B500C20B7D /* ASICloudFilesContainerXMLParserDelegate.h */,
-				1B523B6813F4B2B500C20B7D /* ASICloudFilesContainerXMLParserDelegate.m */,
-				1B523B6913F4B2B500C20B7D /* ASICloudFilesObject.h */,
-				1B523B6A13F4B2B500C20B7D /* ASICloudFilesObject.m */,
-				1B523B6B13F4B2B500C20B7D /* ASICloudFilesObjectRequest.h */,
-				1B523B6C13F4B2B500C20B7D /* ASICloudFilesObjectRequest.m */,
-				1B523B6D13F4B2B500C20B7D /* ASICloudFilesRequest.h */,
-				1B523B6E13F4B2B500C20B7D /* ASICloudFilesRequest.m */,
-			);
-			name = CloudFiles;
-			path = "Externals/asi-http-request/Classes/CloudFiles";
-			sourceTree = "<group>";
-		};
-		1B523B6F13F4B2B500C20B7D /* S3 */ = {
-			isa = PBXGroup;
-			children = (
-				1B523B7013F4B2B500C20B7D /* ASINSXMLParserCompat.h */,
-				1B523B7113F4B2B500C20B7D /* ASIS3Bucket.h */,
-				1B523B7213F4B2B500C20B7D /* ASIS3Bucket.m */,
-				1B523B7313F4B2B500C20B7D /* ASIS3BucketObject.h */,
-				1B523B7413F4B2B500C20B7D /* ASIS3BucketObject.m */,
-				1B523B7513F4B2B500C20B7D /* ASIS3BucketRequest.h */,
-				1B523B7613F4B2B500C20B7D /* ASIS3BucketRequest.m */,
-				1B523B7713F4B2B500C20B7D /* ASIS3ObjectRequest.h */,
-				1B523B7813F4B2B500C20B7D /* ASIS3ObjectRequest.m */,
-				1B523B7913F4B2B500C20B7D /* ASIS3Request.h */,
-				1B523B7A13F4B2B500C20B7D /* ASIS3Request.m */,
-				1B523B7B13F4B2B500C20B7D /* ASIS3ServiceRequest.h */,
-				1B523B7C13F4B2B500C20B7D /* ASIS3ServiceRequest.m */,
-			);
-			name = S3;
-			path = "Externals/asi-http-request/Classes/S3";
 			sourceTree = "<group>";
 		};
 		1B7B1043240604020018DB18 /* TheMovieDbNG */ = {
@@ -1504,36 +1245,6 @@
 				1B7FF40424048024001457CE /* Token.swift */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		1B8CB8FA14ACD5C700F859F7 /* TheMovieDb */ = {
-			isa = PBXGroup;
-			children = (
-				1B8CB95114ACD77E00F859F7 /* Classes */,
-				1B8CB8FB14ACD5D800F859F7 /* Resources */,
-			);
-			name = TheMovieDb;
-			sourceTree = "<group>";
-		};
-		1B8CB8FB14ACD5D800F859F7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1B8CB95014ACD77800F859F7 /* Info.plist */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		1B8CB95114ACD77E00F859F7 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				1B8CB97F14AE3C1800F859F7 /* Access.h */,
-				1B299D6C14AE3CF50048B7C0 /* TheMovieDbPlugin.h */,
-				1B8CB96214AE3B2000F859F7 /* TheMovieDbPlugin.m */,
-				1B299D7114AE43900048B7C0 /* TheMovieDbSearch.h */,
-				1B299D7214AE43900048B7C0 /* TheMovieDbSearch.m */,
-			);
-			name = Classes;
-			path = TheMovieDb/src;
 			sourceTree = "<group>";
 		};
 		1B92BB711087884C0057EFD7 /* Views */ = {
@@ -1736,8 +1447,6 @@
 				1B492F901F654FC800A2FD3F /* AppleScript */,
 				1B31858B1841E7A8001EDE79 /* OSXNotification */,
 				1BD561F01648F06700F9C579 /* AlertWindow */,
-				1B8CB8FA14ACD5C700F859F7 /* TheMovieDb */,
-				1B4F538D116E9E1F003221B1 /* TheTVDB */,
 				1BEA6E69106EF251004B1A7F /* AtomicParsley */,
 			);
 			path = Plugins;
@@ -1904,14 +1613,6 @@
 				1B0F08A71F632A2D00032E83 /* GTMNSString+URLArguments.h in Headers */,
 				1B0604AD1199E24700589ACE /* MZSearchProviderPlugin.h in Headers */,
 				1BAC91BD13F060300022D625 /* NSString+MZAllInCharacterSet.h in Headers */,
-				1B523C1413FDCC9600C20B7D /* ASIHTTPRequest.h in Headers */,
-				1B523C4013FDCCC300C20B7D /* ASIDownloadCache.h in Headers */,
-				1B523C4513FDCCD000C20B7D /* ASIInputStream.h in Headers */,
-				1B523C4A13FDCCDA00C20B7D /* ASIDataDecompressor.h in Headers */,
-				1B523C4F13FDCD1A00C20B7D /* ASICacheDelegate.h in Headers */,
-				1B523C5013FDCD1A00C20B7D /* ASIHTTPRequestConfig.h in Headers */,
-				1B523C5113FDCD1A00C20B7D /* ASIHTTPRequestDelegate.h in Headers */,
-				1B523C5213FDCD1A00C20B7D /* ASIProgressDelegate.h in Headers */,
 				1B0696D7149BFB2D00B5FA90 /* NSString+MZQueryString.h in Headers */,
 				1BDEC5ED1620DE160051D656 /* AEVTBuilder.h in Headers */,
 				1BD55C5E16483F5E00F9C579 /* MZActionsPlugin.h in Headers */,
@@ -1920,7 +1621,6 @@
 				1B3185871841E167001EDE79 /* NSData+MZCleanUTF8.h in Headers */,
 				1B3185BE1841F5A1001EDE79 /* MZVersion.h in Headers */,
 				1BD55C661648466700F9C579 /* NSError+MZScriptError.h in Headers */,
-				1B4C1F4016554B0100011621 /* MZHTTPRequest.h in Headers */,
 				1B38FCDA1673F7E500C171F9 /* NSString+MimeTypePattern.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1965,25 +1665,6 @@
 			productReference = 1B3185B21841E9D6001EDE79 /* OSXNotification.mzactions */;
 			productType = "com.apple.product-type.bundle";
 		};
-		1B4F53B3116E9F44003221B1 /* TheTVDB */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1B4F53C5116E9F44003221B1 /* Build configuration list for PBXNativeTarget "TheTVDB" */;
-			buildPhases = (
-				1B4F53B8116E9F44003221B1 /* Resources */,
-				1B4F53B9116E9F44003221B1 /* Sources */,
-				1B4F53C3116E9F44003221B1 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1B4F53B4116E9F44003221B1 /* PBXTargetDependency */,
-				1B4F53B6116E9F44003221B1 /* PBXTargetDependency */,
-			);
-			name = TheTVDB;
-			productName = Amazon;
-			productReference = 1B4F53C9116E9F44003221B1 /* TheTVDB.mzsearchprovider */;
-			productType = "com.apple.product-type.bundle";
-		};
 		1B7B1032240603930018DB18 /* TheMovieDbNG */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B7B103D240603930018DB18 /* Build configuration list for PBXNativeTarget "TheMovieDbNG" */;
@@ -2020,25 +1701,6 @@
 			name = TheTVDB3;
 			productName = Amazon;
 			productReference = 1B7FF3F324047EE3001457CE /* TheTVDB3.mzsearchprovider */;
-			productType = "com.apple.product-type.bundle";
-		};
-		1B8CB90A14ACD62000F859F7 /* TheMovieDb */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1B8CB91014ACD62100F859F7 /* Build configuration list for PBXNativeTarget "TheMovieDb" */;
-			buildPhases = (
-				1B8CB90714ACD62000F859F7 /* Resources */,
-				1B8CB90814ACD62000F859F7 /* Sources */,
-				1B8CB90914ACD62000F859F7 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1B8CB91214ACD63100F859F7 /* PBXTargetDependency */,
-				1B8CB91414ACD6B300F859F7 /* PBXTargetDependency */,
-			);
-			name = TheMovieDb;
-			productName = TheMovieDb;
-			productReference = 1B8CB90B14ACD62000F859F7 /* TheMovieDb.mzsearchprovider */;
 			productType = "com.apple.product-type.bundle";
 		};
 		1BA325C310545ACA00276F57 /* MetaZKit */ = {
@@ -2120,9 +1782,7 @@
 				1B3185B71841EAF5001EDE79 /* PBXTargetDependency */,
 				1BA325CC10545BAE00276F57 /* PBXTargetDependency */,
 				1BEA6F2A106EF693004B1A7F /* PBXTargetDependency */,
-				1B4F53D2116EA0B7003221B1 /* PBXTargetDependency */,
 				1B20239310B395FA00EE548A /* PBXTargetDependency */,
-				1B299DA414AE4D2A0048B7C0 /* PBXTargetDependency */,
 				1BD562561648F44300F9C579 /* PBXTargetDependency */,
 			);
 			name = MetaZ;
@@ -2184,8 +1844,6 @@
 				1BEA6E71106EF2A0004B1A7F /* AtomicParsley */,
 				1B03304210B0CD3C00B28E3A /* MetaZKitTest */,
 				1B2022F810B393CA00EE548A /* Plist Marcos */,
-				1B4F53B3116E9F44003221B1 /* TheTVDB */,
-				1B8CB90A14ACD62000F859F7 /* TheMovieDb */,
 				1BD562061648F17C00F9C579 /* AlertWindowPlugin */,
 				1B3185A01841E9D6001EDE79 /* OSXNotificationPlugin */,
 				1B7FF3E324047EE3001457CE /* TheTVDB3 */,
@@ -2210,14 +1868,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B4F53B8116E9F44003221B1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B4AF84511715C8400E5C969 /* languages.xml in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1B7B1037240603930018DB18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2231,13 +1881,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7FF40624048024001457CE /* logo2.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1B8CB90714ACD62000F859F7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2487,15 +2130,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B4F53B9116E9F44003221B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B4F53DF116EA1B5003221B1 /* TheTVDBPlugin.m in Sources */,
-				1B4AF83B1170CFCC00E5C969 /* TheTVDBSearch.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1B7B1038240603930018DB18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2516,15 +2150,6 @@
 				1B7FF40824048024001457CE /* Plugin.swift in Sources */,
 				1B7FF40724048024001457CE /* JSON.swift in Sources */,
 				1B7FF40A24048024001457CE /* Token.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1B8CB90814ACD62000F859F7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B8CB96314AE3B2000F859F7 /* TheMovieDbPlugin.m in Sources */,
-				1B299D7314AE43900048B7C0 /* TheMovieDbSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2569,12 +2194,7 @@
 				1BC256391192C183001B9E1E /* NSObject+WaitUntilChange.m in Sources */,
 				1B0604AE1199E24700589ACE /* MZSearchProviderPlugin.m in Sources */,
 				1BAC91BE13F060300022D625 /* NSString+MZAllInCharacterSet.m in Sources */,
-				1B523C1513FDCC9600C20B7D /* ASIHTTPRequest.m in Sources */,
 				1B27653A240B5F2900723C13 /* Data+Base64URL.swift in Sources */,
-				1B523C4113FDCCC300C20B7D /* ASIDownloadCache.m in Sources */,
-				1B523C4613FDCCD000C20B7D /* ASIInputStream.m in Sources */,
-				1B523C4B13FDCCDA00C20B7D /* ASIDataDecompressor.m in Sources */,
-				1B36E75E1406612F009F542A /* ASIDataCompressor.m in Sources */,
 				1B7FF3E224047DE5001457CE /* String-matches-mimetype-pattern.swift in Sources */,
 				1B0696D8149BFB2D00B5FA90 /* NSString+MZQueryString.m in Sources */,
 				1B3185BF1841F5A1001EDE79 /* MZVersion.m in Sources */,
@@ -2585,7 +2205,6 @@
 				1B7FF3DE24047DE4001457CE /* RemoteData.swift in Sources */,
 				1BD55C631648431D00F9C579 /* MZScriptActionsPlugin.m in Sources */,
 				1BD55C671648466700F9C579 /* NSError+MZScriptError.m in Sources */,
-				1B4C1F4116554B0600011621 /* MZHTTPRequest.m in Sources */,
 				1B09EB0C165843BF0017FED3 /* MZDataProviderPlugin.m in Sources */,
 				1B38FCDB1673F7E500C171F9 /* NSString+MimeTypePattern.m in Sources */,
 				7F4F84D818CD1F8A00D002DA /* NSString+NumericCompare.m in Sources */,
@@ -2692,11 +2311,6 @@
 			target = 1B2022F810B393CA00EE548A /* Plist Marcos */;
 			targetProxy = 1B2023A210B3960400EE548A /* PBXContainerItemProxy */;
 		};
-		1B299DA414AE4D2A0048B7C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1B8CB90A14ACD62000F859F7 /* TheMovieDb */;
-			targetProxy = 1B299DA314AE4D2A0048B7C0 /* PBXContainerItemProxy */;
-		};
 		1B3185A11841E9D6001EDE79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1BA325C310545ACA00276F57 /* MetaZKit */;
@@ -2711,21 +2325,6 @@
 			isa = PBXTargetDependency;
 			target = 1B3185A01841E9D6001EDE79 /* OSXNotificationPlugin */;
 			targetProxy = 1B3185B61841EAF5001EDE79 /* PBXContainerItemProxy */;
-		};
-		1B4F53B4116E9F44003221B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1B2022F810B393CA00EE548A /* Plist Marcos */;
-			targetProxy = 1B4F53B5116E9F44003221B1 /* PBXContainerItemProxy */;
-		};
-		1B4F53B6116E9F44003221B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1BA325C310545ACA00276F57 /* MetaZKit */;
-			targetProxy = 1B4F53B7116E9F44003221B1 /* PBXContainerItemProxy */;
-		};
-		1B4F53D2116EA0B7003221B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1B4F53B3116E9F44003221B1 /* TheTVDB */;
-			targetProxy = 1B4F53D1116EA0B7003221B1 /* PBXContainerItemProxy */;
 		};
 		1B76F8E92415C0A700CB8810 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2761,16 +2360,6 @@
 			isa = PBXTargetDependency;
 			target = 1B7FF3E324047EE3001457CE /* TheTVDB3 */;
 			targetProxy = 1B7FF3F524047F16001457CE /* PBXContainerItemProxy */;
-		};
-		1B8CB91214ACD63100F859F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1BA325C310545ACA00276F57 /* MetaZKit */;
-			targetProxy = 1B8CB91114ACD63100F859F7 /* PBXContainerItemProxy */;
-		};
-		1B8CB91414ACD6B300F859F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1B2022F810B393CA00EE548A /* Plist Marcos */;
-			targetProxy = 1B8CB91314ACD6B300F859F7 /* PBXContainerItemProxy */;
 		};
 		1BA325CC10545BAE00276F57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3252,92 +2841,6 @@
 			};
 			name = "Remote Debug";
 		};
-		1B4F53C6116E9F44003221B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = Plugins/TheTVDB/Info.plist;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
-				INFOPLIST_PREFIX_HEADER = "$(CONFIGURATION_TEMP_DIR)/Plist Marcos.build/PlistMacros.h";
-				INFOPLIST_PREPROCESS = YES;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/MetaZ/Plugins";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-					"-lz",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.metaz.plugin.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = TheTVDB;
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "Plugins/TheTVDB/**";
-				WRAPPER_EXTENSION = mzsearchprovider;
-			};
-			name = Debug;
-		};
-		1B4F53C7116E9F44003221B1 /* Remote Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/include";
-				INFOPLIST_FILE = Plugins/TheTVDB/Info.plist;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
-				INFOPLIST_PREFIX_HEADER = "$(CONFIGURATION_TEMP_DIR)/Plist Marcos.build/PlistMacros.h";
-				INFOPLIST_PREPROCESS = YES;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/MetaZ/Plugins";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-					"-lz",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.metaz.plugin.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = TheTVDB;
-				SKIP_INSTALL = YES;
-				SYMROOT = /Volumes/ibsoar/Documents/MetaZ;
-				USER_HEADER_SEARCH_PATHS = "Plugins/TheTVDB/**";
-				WRAPPER_EXTENSION = mzsearchprovider;
-			};
-			name = "Remote Debug";
-		};
-		1B4F53C8116E9F44003221B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				COPY_PHASE_STRIP = YES;
-				GCC_MODEL_TUNING = G5;
-				HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/include";
-				INFOPLIST_FILE = Plugins/TheTVDB/Info.plist;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
-				INFOPLIST_PREFIX_HEADER = "$(CONFIGURATION_TEMP_DIR)/Plist Marcos.build/PlistMacros.h";
-				INFOPLIST_PREPROCESS = YES;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/MetaZ/Plugins";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-					"-lz",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.metaz.plugin.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = TheTVDB;
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "Plugins/TheTVDB/**";
-				WRAPPER_EXTENSION = mzsearchprovider;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		1B76F8E52415C0A000CB8810 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3529,92 +3032,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "Plugins/TheTVDB/**";
-				WRAPPER_EXTENSION = mzsearchprovider;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		1B8CB90D14ACD62100F859F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = Plugins/TheMovieDb/Info.plist;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
-				INFOPLIST_PREFIX_HEADER = "$(CONFIGURATION_TEMP_DIR)/Plist Marcos.build/PlistMacros.h";
-				INFOPLIST_PREPROCESS = YES;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/MetaZ/Plugins";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.metaz.plugin.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = TheMovieDb;
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "Plugins/TheMovieDb/**";
-				WRAPPER_EXTENSION = mzsearchprovider;
-			};
-			name = Debug;
-		};
-		1B8CB90E14ACD62100F859F7 /* Remote Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = Plugins/TheMovieDb/Info.plist;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
-				INFOPLIST_PREFIX_HEADER = "$(CONFIGURATION_TEMP_DIR)/Plist Marcos.build/PlistMacros.h";
-				INFOPLIST_PREPROCESS = YES;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/MetaZ/Plugins";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.metaz.plugin.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = TheMovieDb;
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "Plugins/TheMovieDb/**";
-				WRAPPER_EXTENSION = mzsearchprovider;
-			};
-			name = "Remote Debug";
-		};
-		1B8CB90F14ACD62100F859F7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				COPY_PHASE_STRIP = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = Plugins/TheMovieDb/Info.plist;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
-				INFOPLIST_PREFIX_HEADER = "$(CONFIGURATION_TEMP_DIR)/Plist Marcos.build/PlistMacros.h";
-				INFOPLIST_PREPROCESS = YES;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/MetaZ/Plugins";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.metaz.plugin.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = TheMovieDb;
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "Plugins/TheMovieDb/**";
 				WRAPPER_EXTENSION = mzsearchprovider;
 				ZERO_LINK = NO;
 			};
@@ -4046,16 +3463,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B4F53C5116E9F44003221B1 /* Build configuration list for PBXNativeTarget "TheTVDB" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1B4F53C6116E9F44003221B1 /* Debug */,
-				1B4F53C7116E9F44003221B1 /* Remote Debug */,
-				1B4F53C8116E9F44003221B1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1B76F8E42415C0A000CB8810 /* Build configuration list for PBXAggregateTarget "Package" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -4082,16 +3489,6 @@
 				1B7FF3F024047EE3001457CE /* Debug */,
 				1B7FF3F124047EE3001457CE /* Remote Debug */,
 				1B7FF3F224047EE3001457CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1B8CB91014ACD62100F859F7 /* Build configuration list for PBXNativeTarget "TheMovieDb" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1B8CB90D14ACD62100F859F7 /* Debug */,
-				1B8CB90E14ACD62100F859F7 /* Remote Debug */,
-				1B8CB90F14ACD62100F859F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

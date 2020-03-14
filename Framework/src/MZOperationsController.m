@@ -11,7 +11,6 @@
 #import "MZErrorOperation.h"
 #import "MZLogger.h"
 #import "NSObject+WaitUntilChange.h"
-#import <MetaZKit/ASIHTTPRequest.h>
 
 @interface MZOperationsController ()
 @property(readwrite,copy) NSArray* operations;
