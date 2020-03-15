@@ -13,8 +13,6 @@
 
 int main(int argc, const char *argv[])
 {
-    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-
     BOOL makeFileLog = YES;
     for(int i=0; i<argc; i++)
         if(strncmp(argv[i], "-l", 2)==0)
@@ -38,9 +36,9 @@ int main(int argc, const char *argv[])
     }
 
     GTMLogger *logger = [GTMLogger sharedLogger];
-    [logger setFormatter:[[[MZLogStandardFormatter alloc] init] autorelease]];
+    [logger setFormatter:[[MZLogStandardFormatter alloc] init]];
     [logger setWriter:[MZNSLogWriter logWriter]];
-    [logger setFilter:[[[GTMLogNoFilter alloc] init] autorelease]];
+    [logger setFilter:[[GTMLogNoFilter alloc] init]];
     
     NSNumber* versionObj = [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
     NSInteger version;
@@ -58,7 +56,6 @@ int main(int argc, const char *argv[])
     {
         NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:dictPath];
         [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
-        [dict release];
     }
     
     if(version == 0)
@@ -189,6 +186,5 @@ int main(int argc, const char *argv[])
     }
     [[NSUserDefaults standardUserDefaults] setObject:system.description forKey:@"lastRunVersion"];
 
-    [pool release];
     return NSApplicationMain(argc,  argv);
 }

@@ -10,7 +10,6 @@
 #import "GTMNSObject+KeyValueObserving.h"
 #import "MZErrorOperation.h"
 #import "MZLogger.h"
-#import "NSObject+WaitUntilChange.h"
 
 @interface MZOperationsController ()
 @property(readwrite,copy) NSArray* operations;
@@ -45,8 +44,6 @@
     }
     if(![self isFinished])
         MZLoggerError(@"Deallocing unfinished controller");
-    [operations release];
-    [super dealloc];
 }
 
 @synthesize operations;
@@ -63,9 +60,7 @@
         [operation gtm_addObserver:self forKeyPath:@"isFinished" selector:@selector(operationFinished:) userInfo:nil options:0];
         if([self isCancelled])
             [operation cancel];
-        NSArray* old = operations;
-        operations = [[operations arrayByAddingObject:operation] retain];
-        [old release];
+        operations = [operations arrayByAddingObject:operation];
     }
 }
 
@@ -115,9 +110,7 @@
         self.finished = YES;
     }
     MZLoggerDebug(@"Sending operationsFinished");
-    [self retain];
     [self performSelectorOnMainThread:@selector(operationsFinished) withObject:nil waitUntilDone:YES];
-    [self release];
 }
 
 - (void)errorChanged:(GTMKeyValueChangeNotification *)notification

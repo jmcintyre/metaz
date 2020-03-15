@@ -13,7 +13,7 @@
 
 + (NSDate *)dateWithUTCString:(NSString *)timestamp
 {
-	NSDateFormatter *outputFormatter = [[[NSDateFormatter alloc] init] autorelease];
+	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
 	outputFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
 	outputFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 	return [outputFormatter dateFromString:timestamp];
@@ -21,7 +21,7 @@
 
 - (NSString *)utcTimestamp
 {
-	NSDateFormatter *outputFormatter = [[[NSDateFormatter alloc] init] autorelease];
+	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
 	outputFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
 	outputFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 	return [outputFormatter stringFromDate:self];

@@ -19,7 +19,7 @@
             genres = [NSArray array];
         NSSet* set = [NSSet setWithArray:genres];
         genres = [set allObjects];
-        genres = [[genres sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] retain];
+        genres = [genres sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
         [[NSUserDefaults standardUserDefaults] setObject:genres forKey:@"genres"];
         [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"genres" options:0 context:NULL];
         [[NSNotificationCenter defaultCenter]
@@ -34,8 +34,6 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [genres release];
-    [super dealloc];
 }
 
 - (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox
@@ -73,7 +71,7 @@
         NSArray* newGenres = [set allObjects];
         newGenres = [newGenres sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
         [self willChangeValueForKey:@"genres"];
-        genres = [newGenres retain];
+        genres = newGenres;
         [self didChangeValueForKey:@"genres"];
     }
 }
@@ -90,7 +88,7 @@
         NSArray* newGenres = [set allObjects];
         newGenres = [newGenres sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
         [self willChangeValueForKey:@"genres"];
-        genres = [newGenres retain];
+        genres = newGenres;
         [[NSUserDefaults standardUserDefaults] setObject:genres forKey:@"genres"];
         [self didChangeValueForKey:@"genres"];
     }

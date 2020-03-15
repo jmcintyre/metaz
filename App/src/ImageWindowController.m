@@ -16,7 +16,7 @@ extern NSString *const IKToolModeSelectEllipse;
 extern NSString *const IKToolModeSelectLasso;
 
 NSData* tiffForCGImage(CGImageRef cgImage) {
-  NSBitmapImageRep *imageRep = [[[NSBitmapImageRep alloc] initWithCGImage:cgImage] autorelease];
+  NSBitmapImageRep *imageRep = [[NSBitmapImageRep alloc] initWithCGImage:cgImage];
   NSData *tiffData = [imageRep TIFFRepresentationUsingCompression:NSTIFFCompressionLZW factor:0.0f];
   return tiffData;
 }
@@ -35,14 +35,14 @@ NSData* tiffForCGImage(CGImageRef cgImage) {
 	[orig drawAtPoint:NSZeroPoint];
 	[rotated unlockFocus];
 	//[orig autorelease];
-	return [rotated autorelease];
+	return rotated;
 }
 
 
 - (id)initWithImageView:(NSImageView *)aImageView
 {
     self = [super initWithWindowNibName:@"ImageEdit"];
-    sourceImageView = [aImageView retain];
+    sourceImageView = aImageView;
     [sourceImageView addObserver:self forKeyPath:@"objectValue" options:NSKeyValueObservingOptionNew context:IMAGE_CTX];
     [sourceImageView addObserver:self forKeyPath:@"image" options:NSKeyValueObservingOptionNew context:IMAGE_CTX];
     currentSelect = IKToolModeSelect;
@@ -54,11 +54,6 @@ NSData* tiffForCGImage(CGImageRef cgImage) {
     [sourceImageView removeObserver:self forKeyPath:@"objectValue"];
     [sourceImageView removeObserver:self forKeyPath:@"image"];
     [imageView removeObserver:self forKeyPath:@"rotationAngle"];
-    [sourceImageView release];
-    [imageView release];
-    [moveSelectTool release];
-    [selectMenu release];
-    [super dealloc];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -73,8 +68,8 @@ NSData* tiffForCGImage(CGImageRef cgImage) {
 - (void)imageDidChange:(IKImageView *)aImageView imageState:(IKImageState*)state image:(CGImageRef)image
 {
     [sourceImageView removeObserver:self forKeyPath:@"objectValue"];
-    NSBitmapImageRep* rep = [[[NSBitmapImageRep alloc] initWithCGImage:[aImageView image]] autorelease];
-    NSImage* nextImage = [[[NSImage alloc] initWithData:[rep TIFFRepresentation]] autorelease];
+    NSBitmapImageRep* rep = [[NSBitmapImageRep alloc] initWithCGImage:[aImageView image]];
+    NSImage* nextImage = [[NSImage alloc] initWithData:[rep TIFFRepresentation]];
     [sourceImageView setObjectValue:nextImage];
     [sourceImageView sendAction:[sourceImageView action] to:[sourceImageView target]];
     [sourceImageView addObserver:self forKeyPath:@"objectValue" options:NSKeyValueObservingOptionNew context:IMAGE_CTX];

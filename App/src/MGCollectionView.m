@@ -58,21 +58,11 @@
     if(self)
     {
         _targetItems = [[NSMutableArray alloc] initWithCapacity:0];
-        items = [[NSArray array] retain];
+        items = [NSArray array];
         _targetViewFrameRect = frame;
         usesAlternatingRowBackgroundColors = YES;
     }
     return self;
-}
-
--(void)dealloc
-{
-    [itemPrototype release];
-    [content release];
-    [_animation release];
-    [_targetItems release];
-    [items release];
-    [super dealloc];
 }
 
 - (void)_removeTargetItem:(MGCollectionViewItem*)item
@@ -96,7 +86,6 @@
             [item _finishHideAnimation];
     }
 
-    [_animation release];
     _animation = nil;
     [self setNeedsDisplay:YES];
 }
@@ -135,7 +124,6 @@
         }
         if(animations.count > 0)
         {
-            [_animation release];
             _animation = [[MGViewAnimation alloc] initWithViewAnimations:animations];
             [_animation setDuration:0.5];    // half a second.
             [_animation setAnimationCurve:NSAnimationEaseIn];
@@ -187,7 +175,7 @@
 {
     NSMutableArray* existing = [NSMutableArray arrayWithCapacity:10];
     NSMutableArray* newitems = [NSMutableArray arrayWithCapacity:10];
-    NSMutableIndexSet* foundSet = [[[NSMutableIndexSet alloc] init] autorelease];
+    NSMutableIndexSet* foundSet = [[NSMutableIndexSet alloc] init];
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:10];
     NSUInteger len = [content count];
     NSUInteger len2 = [_targetItems count];
@@ -228,7 +216,7 @@
             item = [_targetItems objectAtIndex:[[dict objectForKey:[NSNumber numberWithUnsignedInt:i]] unsignedIntValue]];
         } else  // Not Found = New Item
         {
-            item = [[self newItemForRepresentedObject:object] autorelease];
+            item = [self newItemForRepresentedObject:object];
         }
 
         NSRect oldFrame = item.view.frame;
@@ -290,12 +278,10 @@
         _targetViewFrameRect = NSMakeRect(myFrame.origin.x, myFrame.origin.y, width, yPos);
     }
 
-    [_targetItems release];
-    _targetItems = [existing retain];
+    _targetItems = existing;
     [self setNeedsLayout:NO];
     [self willChangeValueForKey:@"items"];
-    [items release];
-    items = [[NSArray arrayWithArray:newitems] retain];
+    items = [NSArray arrayWithArray:newitems];
     [self didChangeValueForKey:@"items"];
 }
 
@@ -313,7 +299,6 @@
 
 - (void)setContent:(NSArray *)aContent
 {
-    [content release];
     content = [[NSArray alloc] initWithArray:aContent];
     [self _contentChanged:YES regenerate:NO];
 }
@@ -356,7 +341,6 @@
     {
         [self setNeedsDisplay:YES];
     }
-    [backgroundColors release];
     if(colors)
         backgroundColors = [NSArray arrayWithArray:colors];
     else
@@ -390,7 +374,7 @@
     NSAssert(count>0, @"We need colors");
     if(count == 1)
     {
-        [[colors objectAtIndex:0] set];
+        [(NSColor*)[colors objectAtIndex:0] set];
         NSRectFill([self bounds]);
         return;
     }
@@ -401,7 +385,7 @@
     {
         if(![item _isRemovalNeeded])
         {
-            [[colors objectAtIndex:coloridx] set];
+            [(NSColor*)[colors objectAtIndex:coloridx] set];
             NSRect frame = item.view.frame;
             ypos = MGFloatMax(ypos, frame.origin.y + frame.size.height);
             NSRectFill(frame);
@@ -416,7 +400,7 @@
         NSUInteger missing = (bounds.size.height - ypos) / height;
         for(NSUInteger i=0; i<missing; i++)
         {
-            [[colors objectAtIndex:coloridx] set];
+            [(NSColor*)[colors objectAtIndex:coloridx] set];
             NSRect frame = NSZeroRect;
             frame.origin.y = ypos;
             frame.size.width = bounds.size.width;
@@ -425,7 +409,7 @@
             ypos+=height;
             coloridx = (coloridx + 1) % count;
         }
-        [[colors objectAtIndex:coloridx] set];
+        [(NSColor*)[colors objectAtIndex:coloridx] set];
         NSRect frame = NSZeroRect;
         frame.origin.y = ypos;
         frame.size.width = bounds.size.width;
@@ -437,8 +421,7 @@
 
 - (void)setItemPrototype:(MGCollectionViewItem *)item
 {
-    [itemPrototype release];
-    itemPrototype = [item retain];
+    itemPrototype = item;
     [self _contentChanged:NO regenerate:YES];
 }
 
@@ -477,12 +460,6 @@
     [encoder encodeRect:_targetViewFrameRect forKey:@"_targetViewFrameRect"];
 }
 
--(void)dealloc
-{
-    [archived release];
-    [super dealloc];
-}
-
 - (void)loadView
 {
     [super loadView];
@@ -496,8 +473,8 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     if(!archived)
-        archived = [[NSKeyedArchiver archivedDataWithRootObject:self] retain];
-    MGCollectionViewItem* ret = [[NSKeyedUnarchiver unarchiveObjectWithData:archived] retain];
+        archived = [NSKeyedArchiver archivedDataWithRootObject:self];
+    MGCollectionViewItem* ret = [NSKeyedUnarchiver unarchiveObjectWithData:archived];
     [ret setRepresentedObject:nil];
     [self _copyConnectionsOfView:[self view] referenceObject:self toView:[ret view] referenceObject:ret];
     return ret;
@@ -505,10 +482,8 @@
 
 - (void)_finishHideAnimation
 {
-    [self retain];
     [self.view removeFromSuperview];
     [_itemOwnerView _removeTargetItem:self];
-    [self release];
 }
 
 - (NSRect)_targetViewFrameRect

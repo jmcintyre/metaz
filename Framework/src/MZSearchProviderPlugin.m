@@ -25,11 +25,6 @@
 {
     for(id canceledSearch in canceledSearches)
         [canceledSearch gtm_removeObserver:self forKeyPath:@"isFinished" selector:@selector(canceledSearchFinished:)];
-
-    [search release];
-    [canceledSearches release];
-    [icon release];
-    [super dealloc];
 }
 
 - (void)cancelSearch
@@ -48,7 +43,6 @@
                 }
             }
             [search cancel];
-            [search release];
             search = nil;
         }
     }
@@ -56,7 +50,7 @@
 
 - (void)startSearch:(id)theSearch
 {
-    search = [theSearch retain];
+    search = theSearch;
 }
 
 - (void)canceledSearchFinishedMain:(id)theSearch
@@ -96,8 +90,8 @@
 		if (!icon)
 		{
 			// We couldn't load the required icon. Fallback to a warning icon.
-			icon = [[[NSWorkspace sharedWorkspace]
-					 iconForFileType:NSFileTypeForHFSTypeCode(kAlertCautionIcon)] retain];
+			icon = [[NSWorkspace sharedWorkspace]
+					 iconForFileType:NSFileTypeForHFSTypeCode(kAlertCautionIcon)];
 		}
     }
     return icon;

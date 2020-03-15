@@ -11,12 +11,12 @@
 
 @interface PresetsUndoHelper : NSObject
 {
-    PresetsWindowController* controller;
-    MetaEdits* edit;
+    PresetsWindowController* __weak controller;
+    MetaEdits* __weak edit;
     BOOL observing;
 }
-@property (readonly) PresetsWindowController* controller;
-@property (readonly) MetaEdits* edit;
+@property (weak, readonly) PresetsWindowController* controller;
+@property (weak, readonly) MetaEdits* edit;
 
 + (id)helperWithController:(PresetsWindowController *)theController edit:(MetaEdits *)theEdit;
 - (id)initWithController:(PresetsWindowController *)theController edit:(MetaEdits *)theEdit;
@@ -50,7 +50,7 @@
     self = [super initWithWindowNibName:@"PresetsPanel"];
     if(self)
     {
-        filesController = [controller retain];
+        filesController = controller;
         undoManager = [[NSUndoManager alloc] init];
         undoHelpers = [[NSMutableSet alloc] init];
     }
@@ -63,12 +63,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [filesController removeObserver:self forKeyPath:@"selection.providedTags"];
     [presetsController removeObserver:self forKeyPath:@"selection.name"];
-    [presetsController release];
-    [filesController release];
-    [presetsView release];
-    [undoManager release];
-    [undoHelpers release];
-    [super dealloc];
 }
 
 - (void)awakeFromNib
@@ -327,7 +321,7 @@
 
 + (id)helperWithController:(PresetsWindowController *)theController edit:(MetaEdits *)theEdit;
 {
-    return [[[self alloc] initWithController:theController edit:theEdit] autorelease];
+    return [[self alloc] initWithController:theController edit:theEdit];
 }
 
 - (id)initWithController:(PresetsWindowController *)theController edit:(MetaEdits *)theEdit;
@@ -346,7 +340,6 @@
 {
     [controller.undoManager removeAllActionsWithTarget:self];
     [self removeObservers];
-    [super dealloc];
 }
 
 - (NSUInteger)hash

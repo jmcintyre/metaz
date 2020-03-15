@@ -17,9 +17,9 @@
 + (id)scriptingEnumeratorWithName:(NSString *)name code:(OSType)code description:(NSString *)description value:(id)value;
 - (id)initWithName:(NSString *)name code:(OSType)code description:(NSString *)description value:(id)value;
 
-@property(readonly,retain) NSString* name;
+@property(readonly,strong) NSString* name;
 @property(readonly) OSType code;
-@property(readonly,retain) NSString* description;
+@property(readonly,strong) NSString* description;
 @property(readonly) id objectValue;
 
 - (NSAppleEventDescriptor *)scriptingAnyDescriptor;

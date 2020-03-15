@@ -34,7 +34,7 @@
     if(self)
     {
         controller = nil;
-        writeQueue = [[MZWriteQueue sharedQueue] retain];
+        writeQueue = [MZWriteQueue sharedQueue];
         dockIndicator = [[UKDockProgressIndicator alloc] init];
         [self registerAsObserver];
     }
@@ -44,16 +44,7 @@
 -(void)dealloc
 {
     [self unregisterAsObserver];
-    [writeQueue release];
-    [controller release];
-    [filesController release];
-    [dockIndicator release];
-    [progressBar release];
-    [mainView release];
-    [pendingLabel release];
     [animation stopAnimationChain];
-    [animation release];
-    [super dealloc];
 }
 
 - (void)awakeFromNib
@@ -141,10 +132,8 @@
                 if(animation && ([animation isAnimating] || [animation currentProgress]==0.0))
                 {
                     [nextAnim startWhenAnimation:animation reachesProgress:1.0];
-                    [animation release];
                     animation = nextAnim;
                 } else {
-                    [animation release];
                     animation = nextAnim;
                     [animation startAnimation];
                 }
@@ -188,10 +177,8 @@
                 if(animation && ([animation isAnimating] || [animation currentProgress]==0.0))
                 {
                     [nextAnim startWhenAnimation:animation reachesProgress:1.0];
-                    [animation release];
                     animation = nextAnim;
                 } else {
-                    [animation release];
                     animation = nextAnim;
                     [animation startAnimation];
                 }
@@ -272,7 +259,6 @@
     [animation stopAnimationChain];
     if([animation currentProgress] < 1.0)
         [animation setCurrentProgress:1.0];
-    [animation release];
     animation = nil; 
 }
 
@@ -289,7 +275,6 @@
            removeObserver:self 
                      name:NSWindowWillCloseNotification
                    object:[note object]];
-    [controller release];
     controller = nil;
 }
 

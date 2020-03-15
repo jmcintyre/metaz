@@ -29,7 +29,7 @@
     self = [super initWithCoder:decoder];
     if(self)
     {
-        activeProfile = [[SearchProfile unknownTypeProfile] retain];
+        activeProfile = [SearchProfile unknownTypeProfile];
         [activeProfile gtm_addObserver:self
                             forKeyPath:@"searchTerms"
                               selector:@selector(changedSearchTerms:)
@@ -44,7 +44,7 @@
     self = [super init];
     if(self)
     {
-        activeProfile = [[SearchProfile unknownTypeProfile] retain];
+        activeProfile = [SearchProfile unknownTypeProfile];
         [activeProfile gtm_addObserver:self
                             forKeyPath:@"searchTerms"
                               selector:@selector(changedSearchTerms:)
@@ -59,7 +59,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self)
     {
-        activeProfile = [[SearchProfile unknownTypeProfile] retain];
+        activeProfile = [SearchProfile unknownTypeProfile];
         [activeProfile gtm_addObserver:self
                             forKeyPath:@"searchTerms"
                               selector:@selector(changedSearchTerms:)
@@ -77,12 +77,6 @@
     [activeProfile gtm_removeObserver:self
                            forKeyPath:@"searchTerms"
                              selector:@selector(changedSearchTerms:)];
-    [arrayController release];
-    [filesController release];
-    [searchField release];
-    [searchIndicator release];
-    [activeProfile release];
-    [super dealloc];
 }
 
 -(void)awakeFromNib
@@ -158,8 +152,7 @@
     if(!force && currentSearchTerms && [dict isEqualToDictionary:currentSearchTerms])
         return;
         
-    [currentSearchTerms release];
-    currentSearchTerms = [dict retain];
+    currentSearchTerms = dict;
     
     [searchIndicator startAnimation:searchField];
     [arrayController setSortDescriptors:nil];
@@ -179,19 +172,19 @@
     switch (vt) {
         case MZMovieVideoType:
             if([[activeProfile identifier] isEqual:@"movie"])
-                profile = [[activeProfile retain] autorelease];
+                profile = activeProfile;
             else
                 profile = [SearchProfile movieProfile];
             break;
         case MZTVShowVideoType:
             if([[activeProfile identifier] isEqual:@"tvShow"])
-                profile = [[activeProfile retain] autorelease];
+                profile = activeProfile;
             else
                 profile = [SearchProfile tvShowProfile];
             break;
         default:
             if([[activeProfile identifier] isEqual:@"unknown"])
-                profile = [[activeProfile retain] autorelease];
+                profile = activeProfile;
             else
                 profile = [SearchProfile unknownTypeProfile];
             break;
@@ -199,8 +192,7 @@
     [activeProfile gtm_removeObserver:self
                            forKeyPath:@"searchTerms"
                              selector:@selector(changedSearchTerms:)];
-    [activeProfile release];
-    activeProfile = [profile retain];
+    activeProfile = profile;
     [activeProfile setCheckObject:filesController withPrefix:@"selection.pure."];
     [activeProfile gtm_addObserver:self
                         forKeyPath:@"searchTerms"
@@ -224,13 +216,11 @@
             [item setState:NSOnState];
             [item setIndentationLevel:1];
             [menu addItem:item];
-            [item release];
         }
         i++;
     }
     id searchCell = [searchField cell];
     [searchCell setSearchMenuTemplate:menu];
-    [menu release];
         
     NSString* prefix = @"selection.pure.";
     id mainValue = @"";
@@ -303,7 +293,7 @@
         extraMetaDataForProvider:(MZDataProviderPlugin *)provider
                           loaded:(MetaLoaded*)loaded
 {
-    return [[[SearchMeta alloc] initWithProvider:loaded controller:arrayController] autorelease];
+    return [[SearchMeta alloc] initWithProvider:loaded controller:arrayController];
 }
 
 @end

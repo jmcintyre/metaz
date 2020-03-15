@@ -72,7 +72,7 @@
 
 - (void)setChapters:(NSArray *)newChapters
 {
-    chapters = [newChapters retain];
+    chapters = newChapters;
     [self makeEditorChapters];
 }
 
@@ -106,7 +106,7 @@
 
 - (void)setChapterNames:(NSArray *)newChapterNames
 {
-    chapterNames = [newChapterNames retain];
+    chapterNames = newChapterNames;
     if(!self.chaptersChanged)
         [self makeEditorChapters];
 }
@@ -164,7 +164,6 @@
     if(!chapters)
     {
         [self willChangeValueForKey:@"editorChapters"];
-        [editorChapters release];
         editorChapters = nil;
         [self didChangeValueForKey:@"editorChapters"];
         return;
@@ -315,8 +314,7 @@
         [slider setIntegerValue:slide];
     }
     [self willChangeValueForKey:@"editorChapters"];
-    [editorChapters release];
-    editorChapters = [nextEdits retain];
+    editorChapters = nextEdits;
     [self didChangeValueForKey:@"editorChapters"];
 }
 

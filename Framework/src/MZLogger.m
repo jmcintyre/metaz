@@ -13,7 +13,7 @@
 
 + (id)logWriter
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 - (void)logMessage:(NSString *)msg level:(GTMLoggerLevel)level

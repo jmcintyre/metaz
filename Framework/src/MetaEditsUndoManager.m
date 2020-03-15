@@ -20,11 +20,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)setActionName:(NSString *)actionName
 {
     [super setActionName:actionName];

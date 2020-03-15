@@ -25,15 +25,6 @@
     return self;
 }
 
--(void)dealloc
-{
-    //[controller release];
-    [collectionView release];
-    [itemsLabel release];
-    [clearBtn release];
-    [super dealloc];
-}
-
 - (void)awakeFromNib
 {
     [[self window] setExcludedFromWindowsMenu:YES];

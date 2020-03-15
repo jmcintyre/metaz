@@ -21,7 +21,7 @@ static MZWriteQueue* sharedQueue = nil;
 
 +(MZWriteQueue *)sharedQueue {
     if(!sharedQueue)
-        [[[MZWriteQueue alloc] init] release];
+        [[MZWriteQueue alloc] init];
     return sharedQueue;
 }
 
@@ -47,25 +47,17 @@ static MZWriteQueue* sharedQueue = nil;
 
     if(sharedQueue)
     {
-        [self release];
-        self = [sharedQueue retain];
+        self = sharedQueue;
     } else if(self)
     {
         status = QueueStopped;
-        fileName = [[@"MetaZ" stringByAppendingPathComponent:@"Write.queue"] retain];
+        fileName = [@"MetaZ" stringByAppendingPathComponent:@"Write.queue"];
         queueItems = [[NSMutableArray alloc] init];
         //[self loadQueueWithError:NULL];
-        sharedQueue = [self retain];
+        sharedQueue = self;
         [self resetTrashHandling];
     }
     return self;
-}
-
--(void)dealloc
-{
-    [fileName release];
-    [queueItems release];
-    [super dealloc];
 }
 
 - (void)resetTrashHandling
@@ -335,7 +327,6 @@ static MZWriteQueue* sharedQueue = nil;
             [set addIndex:i];
     }
     [queueItems removeObjectsAtIndexes:set];
-    [set release];
     [self didChangeValueForKey:@"queueItems"];
 }
 

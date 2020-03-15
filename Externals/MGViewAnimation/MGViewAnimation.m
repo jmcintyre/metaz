@@ -54,7 +54,6 @@
                 [normalizedAnimations addObject:dict];
             }
         }
-        [dict release];
     }
     
     _viewAnimations = normalizedAnimations; // already retained by init...: above
@@ -128,7 +127,6 @@
                     [nextView drawRect:[nextView bounds]];
                     [thisImg unlockFocus];
                     [_fadeImages setObject:thisImg forKey:key];
-                    [thisImg release];
                     
                     NSImageView *imgView = [[NSImageView alloc] initWithFrame:newFrame];
                     [imgView setImageFrameStyle:NSImageFrameNone];
@@ -138,7 +136,6 @@
                     }
                     [[nextView superview] addSubview:imgView positioned:NSWindowAbove relativeTo:nextView];
                     [_fadeViews setObject:imgView forKey:key];
-                    [imgView release];
                     
                     [nextView setHidden:YES];
                 } else {
@@ -146,7 +143,7 @@
                     NSImage *thisViewImage = [[NSImage alloc] initWithSize:newFrame.size];
                     NSImage *thisImg;
                     if ([self continuouslyUpdatesFadingViews]) {
-                        thisImg = [[[NSImage alloc] initWithSize:[nextView bounds].size] autorelease];
+                        thisImg = [[NSImage alloc] initWithSize:[nextView bounds].size];
                         [thisImg lockFocus];
                         // Make nextView draw itself into our image, even though it's hidden
                         [nextView drawRect:[nextView bounds]];
@@ -165,7 +162,6 @@
                     NSImageView *fadeView = (NSImageView *)[_fadeViews objectForKey:key];
                     [fadeView setImage:thisViewImage];
                     [fadeView setFrame:newFrame];
-                    [thisViewImage release];
                 }
             } else {
                 // This is a window
@@ -201,20 +197,8 @@
     while (superview = [viewEnum nextObject]) {
         [superview displayIfNeeded];
     }
-    [superviews release];
     NSEnableScreenUpdates();
 }
-
-
-- (void)dealloc
-{
-    [_fadeViews release];
-    [_fadeImages release];
-    [_views release];
-    [_viewAnimations release];
-    [super dealloc];
-}
-
 
 - (NSRect)frameForView:(NSView *)view atProgress:(float)progress
 {

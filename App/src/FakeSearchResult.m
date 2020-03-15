@@ -13,7 +13,7 @@
 
 + (id)resultWithController:(NSArrayController *)controller
 {
-    return [[[self alloc] initWithController:controller] autorelease];
+    return [[self alloc] initWithController:controller];
 }
 
 - (id)initWithController:(NSArrayController *)controller
@@ -21,7 +21,7 @@
     self = [super init];
     if(self)
     {
-        filesController = [controller retain];
+        filesController = controller;
         [filesController addObserver:self forKeyPath:@"selection.pure.title" options:0 context:NULL];
         [filesController addObserver:self forKeyPath:@"selection.pure.chapters" options:0 context:NULL];
 
@@ -35,8 +35,6 @@
 {
     [filesController removeObserver:self forKeyPath:@"selection.pure.title"];
     [filesController removeObserver:self forKeyPath:@"selection.pure.chapters"];
-    [filesController release];
-    [super dealloc];
 }
 
 @synthesize searchResultTitle;

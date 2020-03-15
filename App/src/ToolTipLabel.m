@@ -11,12 +11,6 @@
 
 @implementation ToolTipLabel
 
-- (void)dealloc
-{
-    [text release];
-    [super dealloc];
-}
-
 - (void)mouseEntered:(NSEvent *)theEvent
 {
     MZLoggerDebug(@"Mouse entered label");
@@ -26,7 +20,7 @@
 - (void)showToolTip:(NSString *)toolTip
 {
     if(!showsToolTip)
-        text = [[self stringValue] retain];
+        text = [self stringValue];
     showsToolTip = YES;
     [super setStringValue:toolTip];
 }
@@ -47,8 +41,7 @@
 {
     if(showsToolTip)
     {
-        [text release];
-        text = [aString retain];
+        text = aString;
     }
     else
         [super setStringValue:aString];

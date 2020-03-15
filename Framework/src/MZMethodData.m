@@ -55,23 +55,16 @@
 }
 
 +(MZMethodData *)methodWithSelector:(SEL )aSelector signature:(NSMethodSignature *)aSignature forKey:(NSString *)aKey ofType:(NSUInteger)aType {
-  MZMethodData * ret = [[MZMethodData alloc] initWithSelector:aSelector signature:aSignature forKey:aKey ofType:aType];
-  return [ret autorelease];
+  return [[MZMethodData alloc] initWithSelector:aSelector signature:aSignature forKey:aKey ofType:aType];
 }
 
 -(id)initWithSelector:(SEL)aSelector signature:(NSMethodSignature*)aSignature forKey:(NSString *)aKey ofType:(NSUInteger)aType {
     self = [super init];
     selector = aSelector;
-    signature = [aSignature retain];
-    key = [aKey retain];
+    signature = aSignature;
+    key = aKey;
     type = aType;
     return self;
-}
-
--(void)dealloc {
-    [signature release];
-    [key release];
-    [super dealloc];
 }
 
 @end

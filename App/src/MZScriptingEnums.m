@@ -18,7 +18,7 @@
 
 + (id)scriptingEnumeratorWithName:(NSString *)name code:(OSType)code description:(NSString *)description value:(id)value;
 {
-    return [[[self alloc] initWithName:name code:code description:description value:value] autorelease];
+    return [[self alloc] initWithName:name code:code description:description value:value];
 }
 
 - (id)initWithName:(NSString *)aName code:(OSType)aCode description:(NSString *)aDescription value:(id)aValue;
@@ -26,21 +26,14 @@
     self = [super init];
     if(self)
     {
-        name = [aName retain];
+        name = aName;
         code = aCode;
-        description = [aDescription retain];
-        objectValue = [aValue retain];
+        description = aDescription;
+        objectValue = aValue;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [name release];
-    [description release];
-    [objectValue release];
-    [super dealloc];
-}
 
 - (NSAppleEventDescriptor *)scriptingAnyDescriptor;
 {
@@ -88,7 +81,7 @@ static NSMutableDictionary *sharedScriptingEnums = nil;
 
 + (id)scriptingEnumsWithBundle:(NSBundle *)bundle;
 {
-    return [[[self alloc] initWithBundle:bundle] autorelease];
+    return [[self alloc] initWithBundle:bundle];
 }
 
 - (id)initWithBundle:(NSBundle *)aBundle;
@@ -96,18 +89,11 @@ static NSMutableDictionary *sharedScriptingEnums = nil;
     self = [super init];
     if(self)
     {
-        bundle = [aBundle retain];
+        bundle = aBundle;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [bundle release];
-    [codeToEnumValue release];
-    [nameToEnum release];
-    [super dealloc];
-}
 
 - (void)load
 {
@@ -187,7 +173,6 @@ static NSMutableDictionary *sharedScriptingEnums = nil;
         }
         [enums setObject:[NSDictionary dictionaryWithDictionary:values] forKey:enumerationName]; 
     }
-    [doc release];
     
     codeToEnumValue = [[NSDictionary alloc] initWithDictionary:codes];
     nameToEnum = [[NSDictionary alloc] initWithDictionary:enums];

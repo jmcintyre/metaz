@@ -12,12 +12,6 @@
 @implementation MyQueueCollectionView
 @synthesize queues;
 
--(void)dealloc
-{
-    [queues release];
-    [super dealloc];
-}
-
 -(void)awakeFromNib
 {
     [self bind:NSContentBinding toObject:queues withKeyPath:@"arrangedObjects" options:nil];

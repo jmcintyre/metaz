@@ -39,11 +39,6 @@
             [remote gtm_removeObserver:self forKeyPath:@"isLoaded" selector:@selector(pictureIsLoaded:)];
     }
     [observerFix removeObserver:self forKeyPath:@"selection.pictureChanged"];
-    [picture release];
-    [indicator release];
-    [retryButton release];
-    [observerFix release];
-    [super dealloc];
 }
 
 - (MZPriorObserverFix* )observerFix
@@ -206,9 +201,7 @@
         }
         [retryButton setHidden:YES];
     }
-    id oldPicture = picture;
-    picture = [newPicture retain];
-    [oldPicture release];
+    picture = newPicture;
     if([picture isKindOfClass:[RemoteData class]])
     {
         RemoteData* remote = picture;

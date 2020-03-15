@@ -157,7 +157,7 @@ id STRING			= nil;
 	
 	NSAppleEventDescriptor *coercedDescriptor = [[NSAppleEventDescriptor alloc] initWithAEDescNoCopy:&coercedDesc];
 
-	return [coercedDescriptor autorelease];
+	return coercedDescriptor;
 }
 
 @end
@@ -287,7 +287,7 @@ id STRING			= nil;
 	
 	if(err == noErr)
 	{
-		replyDescriptor = [[[NSAppleEventDescriptor alloc] initWithAEDescNoCopy:&reply] autorelease];
+		replyDescriptor = [[NSAppleEventDescriptor alloc] initWithAEDescNoCopy:&reply];
 	}
 	
 	return replyDescriptor;

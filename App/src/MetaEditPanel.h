@@ -13,6 +13,6 @@
 {
     FilesUndoController* undoController;
 }
-@property (nonatomic, retain) IBOutlet FilesUndoController* undoController;
+@property (nonatomic, strong) IBOutlet FilesUndoController* undoController;
 
 @end

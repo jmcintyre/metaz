@@ -312,8 +312,8 @@ const AEKeyword keyASUserRecordFields         = 'usrf';
 {
     CFAbsoluteTime absTime;
     UCConvertLongDateTimeToCFAbsoluteTime([desc longDateTimeValue], &absTime);
-    NSDate *resultDate = (NSDate *)CFDateCreate(NULL, absTime);
-    return [resultDate autorelease];
+    NSDate *resultDate = (NSDate *)CFBridgingRelease(CFDateCreate(NULL, absTime));
+    return resultDate;
 }
 
 - (NSAppleEventDescriptor *)scriptingAnyDescriptor;
@@ -363,7 +363,7 @@ const AEKeyword keyASUserRecordFields         = 'usrf';
 - (NSAppleEventDescriptor *)scriptingAnyDescriptor;
 {
     NSAppleEventDescriptor* ret = [NSAppleEventDescriptor listDescriptor];
-    for(id obj in self)
+    for(id __strong obj in self)
     {
         id specifier = [obj objectSpecifier];
         if(specifier)
@@ -596,7 +596,7 @@ const AEKeyword keyASUserRecordFields         = 'usrf';
                 AliasHandle handle = (AliasHandle)desc->dataHandle;
                 OSStatus cpyErr = FSCopyAliasInfo(handle, &t, &v, &path, NULL, NULL);
                 if(cpyErr == 0)
-                    return [NSString stringWithString:(NSString *)path];
+                    return [NSString stringWithString:(__bridge NSString *)path];
                 MZLoggerError(@"FSCopyAliasInfo error %d", (int)cpyErr);
                 return [NSNull null];
             }

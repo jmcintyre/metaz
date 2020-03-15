@@ -49,7 +49,7 @@
 
 + (id)profileWithIdentifier:(NSString *)ident mainTag:(NSString *)main tag:(NSArray *)tags;
 {
-    return [[[self alloc] initWithIdentifier:ident mainTag:main tag:tags] autorelease];
+    return [[self alloc] initWithIdentifier:ident mainTag:main tag:tags];
 }
 
 - (id)initWithIdentifier:(NSString *)ident mainTag:(NSString *)main tag:(NSArray *)theTags;
@@ -57,8 +57,8 @@
     self = [super init];
     if(self)
     {
-        identifier = [ident retain];
-        mainTag = [main retain];
+        identifier = ident;
+        mainTag = main;
 
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         
@@ -89,17 +89,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [identifier release];
-    [mainTag release];
-    [tags release];
-    [checkObj release];
-    [checkPrefix release];
-    [super dealloc];
-}
-
-
 @synthesize identifier;
 @synthesize mainTag;
 
@@ -110,10 +99,8 @@
 
 - (void)setCheckObject:(id)obj withPrefix:(NSString *)prefix
 {
-    [checkObj release];
-    [checkPrefix release];
-    checkObj = [obj retain];
-    checkPrefix = [prefix retain];
+    checkObj = obj;
+    checkPrefix = prefix;
     if(!checkPrefix)
         checkPrefix = @"";
 }
@@ -192,7 +179,7 @@
 
 + (id)stateWithTag:(NSString *)tag
 {
-    return [[[self alloc] initWithTag:tag] autorelease];
+    return [[self alloc] initWithTag:tag];
 }
 
 - (id)initWithTag:(NSString *)theTag
@@ -200,7 +187,7 @@
     self = [super init];
     if(self)
     {
-        tag = [theTag retain];
+        tag = theTag;
         state = YES;
     }
     return self;

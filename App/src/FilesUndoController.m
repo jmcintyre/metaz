@@ -26,10 +26,6 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [filesController removeObserver:self forKeyPath:@"selectedObjects"];
-    [multipleUndoManager release];
-    [selection release];
-    [filesController release];
-    [super dealloc];
 }
 
 #pragma mark - as observer
@@ -60,17 +56,14 @@
                           name:NSUndoManagerDidUndoChangeNotification
                         object:[edit undoManager]];
         }
-        [multipleUndoManager release];
         multipleUndoManager = nil;
-        [selected release];
         selected = nil;
-        [selection release];
         selection = nil;
         
-        selected = [[filesController selectedObjects] retain];
+        selected = [filesController selectedObjects];
         if([selected count] == 1)
         {
-            selection = [[selected objectAtIndex:0] retain];
+            selection = [selected objectAtIndex:0];
         }
         else if([selected count] > 1)
         {

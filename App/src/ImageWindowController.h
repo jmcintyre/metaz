@@ -16,9 +16,9 @@
     NSMenu* selectMenu;
     NSString* currentSelect;
 }
-@property (nonatomic, retain) IBOutlet IKImageView* imageView;
-@property (nonatomic, retain) IBOutlet NSSegmentedControl* moveSelectTool;
-@property (nonatomic, retain) IBOutlet NSMenu* selectMenu;
+@property (nonatomic, strong) IBOutlet IKImageView* imageView;
+@property (nonatomic, strong) IBOutlet NSSegmentedControl* moveSelectTool;
+@property (nonatomic, strong) IBOutlet NSMenu* selectMenu;
 
 - (IBAction)crop:(id)sender;
 - (IBAction)moveSelect:(id)sender;

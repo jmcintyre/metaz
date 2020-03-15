@@ -24,7 +24,7 @@ NSString* const MZPresetNewNameKey = @"MZPresetNewNameKey";
 
 + (id)presetWithName:(NSString *)name values:(NSDictionary *)values
 {
-    return [[[self alloc] initWithName:name values:values] autorelease];
+    return [[self alloc] initWithName:name values:values];
 }
 
 - (id)initWithName:(NSString *)theName values:(NSDictionary *)theValues
@@ -32,17 +32,10 @@ NSString* const MZPresetNewNameKey = @"MZPresetNewNameKey";
     self = [super init];
     if(self)
     {
-        name = [theName retain];
+        name = theName;
         values = [[NSDictionary alloc] initWithDictionary:theValues];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [name release];
-    [values release];
-    [super dealloc];
 }
 
 @synthesize name;
@@ -50,9 +43,8 @@ NSString* const MZPresetNewNameKey = @"MZPresetNewNameKey";
 
 - (void)setName:(NSString *)newName
 {
-    NSString* oldName = [name retain];
-    [name release];
-    name = [newName retain];
+    NSString* oldName = name;
+    name = newName;
     [[MZPresets sharedPresets] saveWithError:NULL];
 
     NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -61,7 +53,6 @@ NSString* const MZPresetNewNameKey = @"MZPresetNewNameKey";
         nil];
     [[NSNotificationCenter defaultCenter] 
         postNotificationName:MZPresetRenamedNotification object:self userInfo:userInfo];
-    [oldName release];
 }
 
 - (void)applyToObject:(id)object withPrefix:(NSString *)prefix
@@ -78,11 +69,9 @@ NSString* const MZPresetNewNameKey = @"MZPresetNewNameKey";
 
 - (void)replaceValue:(id)value forTag:(NSString *)tag
 {
-    NSMutableDictionary* mutDict = [values mutableCopyWithZone:[self zone]];
+    NSMutableDictionary* mutDict = [values copy];
     [mutDict setObject:value forKey:tag];
-    [values release];
-    values = [mutDict copyWithZone:self.zone];
-    [mutDict release];
+    values = [mutDict copy];
 }
 
 #pragma mark - NSCoding implementation
@@ -94,13 +83,13 @@ NSString* const MZPresetNewNameKey = @"MZPresetNewNameKey";
     {
         if([decoder allowsKeyedCoding])
         {
-            name = [[decoder decodeObjectForKey:@"name"] retain];
-            values = [[decoder decodeObjectForKey:@"values"] retain];
+            name = [decoder decodeObjectForKey:@"name"];
+            values = [decoder decodeObjectForKey:@"values"];
         }
         else
         {
-            name = [[decoder decodeObject] retain];
-            values = [[decoder decodeObject] retain];
+            name = [decoder decodeObject];
+            values = [decoder decodeObject];
         }
     }
     return self;
@@ -130,7 +119,7 @@ static MZPresets* sharedPresets = nil;
 +(MZPresets *)sharedPresets
 {
     if(!sharedPresets)
-        [[[MZPresets alloc] init] release];
+        [[MZPresets alloc] init];
     return sharedPresets;
 }
 
@@ -158,12 +147,12 @@ static MZPresets* sharedPresets = nil;
 
     if(sharedPresets)
     {
-        [self release];
-        self = [sharedPresets retain];
-    } else if(self)
+        self = sharedPresets;
+    }
+    else if(self)
     {
-        sharedPresets = [self retain];
-        fileName = [[@"MetaZ" stringByAppendingPathComponent:@"MetaZ.presets"] retain];
+        sharedPresets = self;
+        fileName = [@"MetaZ" stringByAppendingPathComponent:@"MetaZ.presets"];
         presets = [[NSMutableArray alloc] init];
         [[NSNotificationCenter defaultCenter] 
             addObserver:self
@@ -174,18 +163,11 @@ static MZPresets* sharedPresets = nil;
     return self;
 }
 
--(void)dealloc
-{
-    [fileName release];
-    //[queueItems release];
-    [super dealloc];
-}
-
 @synthesize presets;
 
 - (void)removeObjectFromPresetsAtIndex:(NSUInteger)index
 {
-    MZPreset* preset = [[presets objectAtIndex:index] retain];
+    MZPreset* preset = [presets objectAtIndex:index];
     [self willChangeValueForKey:@"presets"];
     [presets removeObjectAtIndex:index];
     [self saveWithError:NULL];
@@ -194,7 +176,6 @@ static MZPresets* sharedPresets = nil;
     NSDictionary* userInfo = [NSDictionary dictionaryWithObject:preset forKey:MZPresetKey];
     [[NSNotificationCenter defaultCenter] 
         postNotificationName:MZPresetRemovedNotification object:self userInfo:userInfo];
-    [preset release];
 }
 
 - (void)insertObject:(MZPreset *)preset inPresetsAtIndex:(NSUInteger)index
@@ -418,7 +399,7 @@ static MZPresets* sharedPresets = nil;
                         [presetValues setObject:inValue forKey:mzKey];
                     }
                 }
-                MZPreset* retPreset = [[[MZPreset alloc] initWithName:presetName values:presetValues] autorelease];
+                MZPreset* retPreset = [[MZPreset alloc] initWithName:presetName values:presetValues];
                 [ret addObject:retPreset];
             }
         }
@@ -541,9 +522,6 @@ static MZPresets* sharedPresets = nil;
 
                     NSInteger returnCode = [alert runModal];
                     lastSelection = [[sel selectedItem] tag];
-
-                    [sel release];
-                    [alert release];
 
                     if(returnCode == NSAlertFirstButtonReturn)
                     {

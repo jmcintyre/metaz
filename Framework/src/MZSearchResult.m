@@ -16,7 +16,7 @@
 #pragma mark - Contruction
 + (id)resultWithOwner:(id)theOwner dictionary:(NSDictionary *)dict
 {
-    return [[[self alloc] initWithOwner:theOwner dictionary:dict] autorelease];
+    return [[self alloc] initWithOwner:theOwner dictionary:dict];
 }
 
 -(id)initWithOwner:(id)theOwner dictionary:(NSDictionary *)dict
@@ -24,7 +24,7 @@
     self = [super init];
     if(self)
     {
-        owner = [theOwner retain];
+        owner = theOwner;
         values = [[NSDictionary alloc]initWithDictionary:dict];
         for(NSString* tagId in [dict allKeys])
         {
@@ -33,13 +33,6 @@
         }
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [values release];
-    [owner release];
-    [super dealloc];
 }
 
 #pragma mark - methods
@@ -158,7 +151,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    return [self retain];
+    return self;
 }
 
 @end

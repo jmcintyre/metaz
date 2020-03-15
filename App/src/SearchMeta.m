@@ -15,8 +15,8 @@
     self = [super init];
     if(self)
     {
-        searchController = [aController retain];
-        provider = [aProvider retain];
+        searchController = aController;
+        provider = aProvider;
         observeFix = [[MZPriorObserverFix alloc] initWithOther:searchController];
         NSMutableArray* tags = [NSMutableArray arrayWithArray:[aProvider providedTags]];
         [tags removeObject:[MZTag tagForIdentifier:MZFileNameTagIdent]];
@@ -53,10 +53,6 @@
         [provider removeObserver:self forKeyPath:key];
     }
     [provider removeObserver:self forKeyPath:MZFileNameTagIdent];
-    [provider release];
-    [observeFix release];
-    [searchController release];
-    [super dealloc];
 }
 
 - (id)owner
@@ -182,7 +178,6 @@
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super init];
-    [self release];
     
     MetaLoaded* theProvider;
     if([decoder allowsKeyedCoding])
@@ -200,12 +195,11 @@
         {
             if(ignoreController)
                 [newMeta prepareForQueue];
-            return [newMeta retain];
+            return newMeta;
         }
     }
     
     // No delegate so delete myself.
-    [self release];
     return nil;
 }
 
@@ -221,7 +215,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    id theProvider = [[provider copyWithZone:zone] autorelease];
+    id theProvider = [provider copyWithZone:zone];
     SearchMeta* ret = [[[self class] alloc] initWithProvider:theProvider controller:searchController];
     ret->ignoreController = ignoreController;
     return ret;

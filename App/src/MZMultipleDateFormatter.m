@@ -37,13 +37,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [utc release];
-    [iso8601 release];
-    [super dealloc];
-}
-
 - (BOOL)getObjectValue:(id *)obj forString:(NSString *)string errorDescription:(NSString **)error;
 {
     if(!string || [string length]==0)

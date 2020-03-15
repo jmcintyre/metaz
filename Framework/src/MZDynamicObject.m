@@ -18,12 +18,6 @@
     return self;
 }
 
--(void)dealloc
-{
-    [methods release];
-    [super dealloc];
-}
-
 -(void)addMethodSetterForKey:(NSString *)aKey ofType:(NSUInteger)aType withObjCType:(const char*)aObjcType
 {
     MZMethodData* method = [MZMethodData methodSetterForKey:aKey ofType:aType withObjCType:aObjcType];

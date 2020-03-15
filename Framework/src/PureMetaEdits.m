@@ -39,7 +39,6 @@
     NSArray* tags = [edits providedTags];
     for(MZTag *tag in tags)
         [pure removeObserver:self forKeyPath: [tag identifier]];
-    [super dealloc];
 }
 
 - (id)owner
@@ -91,7 +90,7 @@
     self = [super init];
     if(self)
     {
-        edits = [[decoder decodeObjectForKey:@"edits"] retain];
+        edits = [decoder decodeObjectForKey:@"edits"];
     }
     return self;
 }
@@ -105,7 +104,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    return [self retain];
+    return self;
 }
 
 @end

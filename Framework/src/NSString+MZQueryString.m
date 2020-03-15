@@ -30,7 +30,7 @@
                                                                            NULL, 
                                                                            (CFStringRef)@"!*'();:@&=+$,/?%#[]", 
                                                                            kCFStringEncodingUTF8);
-        [temp setObject:(NSString*)encodedValue forKey:(NSString*)encodedKey];
+        [temp setObject:(__bridge NSString*)encodedValue forKey:(__bridge NSString*)encodedKey];
         CFRelease(encodedValue);
         //CFRelease(value);
         CFRelease(encodedKey);

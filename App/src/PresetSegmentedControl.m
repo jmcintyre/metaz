@@ -42,15 +42,8 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [segmentKeys release];
-    [super dealloc];
-}
-
 - (void)setSegmentCount:(NSInteger)count
 {
-    [segmentKeys release];
     segmentKeys = [[NSMutableArray alloc] init];
     for(int i=0; i<count; i++)
         [segmentKeys addObject:[SegmentKeys segment]];
@@ -117,7 +110,7 @@
 
 + (id)segment
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 @end

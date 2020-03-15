@@ -141,29 +141,6 @@ NSDictionary* findBinding(NSWindow* window) {
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [filesController removeObserver:self forKeyPath:@"selection.title"];
-    [window release];
-    [tabView release];
-    [episodeFormatter release];
-    [seasonFormatter release];
-    [dateFormatter release];
-    [purchaseDateFormatter release];
-    [filesSegmentControl release];
-    [filesController release];
-    [resizeController release];
-    [undoController release];
-    [shortDescription release];
-    [longDescription release];
-    [undoManager release];
-    [imageView release];
-    [imageEditController release];
-    [prefController release];
-    [presetsController release];
-    [chapterEditor release];
-    [fileNameEditor release];
-    [fileNameStorage release];
-    [picturesController release];
-    [updater release];
-    [super dealloc];
 }
 
 #pragma mark - as observer
@@ -507,7 +484,6 @@ NSDictionary* findBinding(NSWindow* window) {
            removeObserver:self 
                      name:NSWindowWillCloseNotification
                    object:[note object]];
-    [imageEditController release];
     imageEditController = nil;
 }
 
@@ -517,7 +493,6 @@ NSDictionary* findBinding(NSWindow* window) {
            removeObserver:self 
                      name:NSWindowWillCloseNotification
                    object:[note object]];
-    [prefController release];
     prefController = nil;
 }
 
@@ -581,13 +556,11 @@ NSDictionary* findBinding(NSWindow* window) {
             NSLayoutManager *layoutManager;
             layoutManager = [[NSLayoutManager alloc] init];
             [fileNameStorage addLayoutManager:layoutManager];
-            [layoutManager release];
 
             NSTextContainer *container;
             container = [[NSTextContainer alloc]
                     initWithContainerSize:NSZeroSize];
             [layoutManager addTextContainer:container];
-            [container release];
 
             fileNameEditor = [[NSTextView alloc]
                     initWithFrame:NSZeroRect textContainer:container];
@@ -613,7 +586,7 @@ NSDictionary* findBinding(NSWindow* window) {
 {
     [window makeKeyAndOrderFront:sender];
 
-    CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)[filename pathExtension], NULL);
+    CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[filename pathExtension], NULL);
     if(UTTypeConformsTo(uti, kMZUTMetaZPlugin) ||
        UTTypeEqual(uti, kMZUTAppleScriptText) || UTTypeConformsTo(uti, kMZUTAppleScriptText) ||
        UTTypeEqual(uti, kMZUTAppleScript) || UTTypeConformsTo(uti, kMZUTAppleScript) ||
@@ -761,7 +734,7 @@ NSDictionary* findBinding(NSWindow* window) {
     NSString* path = [[NSBundle mainBundle] pathForResource:filename ofType:@"scptd"];
     NSURL* url = [NSURL fileURLWithPath:path];
     NSDictionary* errDict = nil;
-    NSAppleScript* script = [[[NSAppleScript alloc] initWithContentsOfURL:url error:&errDict] autorelease];
+    NSAppleScript* script = [[NSAppleScript alloc] initWithContentsOfURL:url error:&errDict];
     if(errDict)
     {
         NSError* err = [NSError errorWithAppleScriptError:errDict];

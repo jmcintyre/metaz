@@ -14,12 +14,12 @@
 
 + (id)timeCodeWithString:(NSString *)str
 {
-    return [[[self alloc] initWithString:str] autorelease];
+    return [[self alloc] initWithString:str];
 }
 
 + (id)timeCodeWithMillis:(NSUInteger)millis
 {
-    return [[[self alloc] initWithMillis:millis] autorelease];
+    return [[self alloc] initWithMillis:millis];
 }
 
 - (id)initWithString:(NSString *)str
@@ -29,7 +29,6 @@
     NSInteger value;
     if(![scanner scanInteger:&value])
     {
-        [self release];
         return nil;
     }
     theMillis += value*3600000; // Hours
@@ -38,39 +37,33 @@
 
     if(![scanner scanCharactersFromSet:sepSet intoString:NULL])
     {
-        [self release];
         return nil;
     }
 
     if(![scanner scanInteger:&value])
     {
-        [self release];
         return nil;
     }
     theMillis += value*60000; // Minutes
 
     if(![scanner scanCharactersFromSet:sepSet intoString:NULL])
     {
-        [self release];
         return nil;
     }
 
     if(![scanner scanInteger:&value])
     {
-        [self release];
         return nil;
     }
     theMillis += value*1000; // Seconds
     
     if(![scanner scanCharactersFromSet:sepSet intoString:NULL])
     {
-        [self release];
         return nil;
     }
 
     if(![scanner scanInteger:&value])
     {
-        [self release];
         return nil;
     }
     theMillis += value; // milliseconds

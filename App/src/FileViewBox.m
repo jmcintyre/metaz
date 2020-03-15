@@ -15,14 +15,6 @@
 @synthesize label;
 @synthesize disclosure;
 
--(void)dealloc
-{
-    [tabView release];
-    [label release];
-    [disclosure release];
-    [super dealloc];
-}
-
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super initWithCoder:decoder];
@@ -30,15 +22,15 @@
     {
         if([decoder allowsKeyedCoding])
         {
-            tabView = [[decoder decodeObjectForKey:@"tabView"] retain];
-            label = [[decoder decodeObjectForKey:@"label"] retain];
-            disclosure = [[decoder decodeObjectForKey:@"disclosure"] retain];
+            tabView = [decoder decodeObjectForKey:@"tabView"];
+            label = [decoder decodeObjectForKey:@"label"];
+            disclosure = [decoder decodeObjectForKey:@"disclosure"];
         }
         else
         {
-            tabView = [[decoder decodeObject] retain];
-            label = [[decoder decodeObject] retain];
-            disclosure = [[decoder decodeObject] retain];
+            tabView = [decoder decodeObject];
+            label = [decoder decodeObject];
+            disclosure = [decoder decodeObject];
         }
     }
     return self;

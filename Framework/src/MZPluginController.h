@@ -50,7 +50,7 @@ MZKIT_EXTERN const NSInteger errMZPluginFailedToCreatePrincipalClass;
     NSMutableArray* plugins;
     NSMutableArray* loadedPlugins;
     NSMutableSet* loadedBundles;
-    id<MZPluginControllerDelegate> delegate;
+    id<MZPluginControllerDelegate> __weak delegate;
     NSOperationQueue* loadQueue;
     NSOperationQueue* saveQueue;
     NSOperationQueue* searchQueue;
@@ -60,7 +60,7 @@ MZKIT_EXTERN const NSInteger errMZPluginFailedToCreatePrincipalClass;
 + (NSArray *)pluginPaths;
 + (MZPluginController *)sharedInstance;
 
-@property(assign) id<MZPluginControllerDelegate> delegate;
+@property(weak) id<MZPluginControllerDelegate> delegate;
 @property(readonly) NSOperationQueue* loadQueue;
 @property(readonly) NSOperationQueue* saveQueue;
 @property(readonly) NSOperationQueue* searchQueue;

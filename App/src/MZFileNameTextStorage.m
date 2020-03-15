@@ -52,11 +52,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[text release];
-	[super dealloc];
-}
 
 - (NSString *)string
 {

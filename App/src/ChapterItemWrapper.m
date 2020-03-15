@@ -15,12 +15,12 @@
 
 + (id)wrapperWithEditor:(ChapterEditor *)editor
 {
-    return [[[self alloc] initWithEditor:editor] autorelease];
+    return [[self alloc] initWithEditor:editor];
 }
 
 + (id)wrapperWithEditor:(ChapterEditor *)editor no:(NSInteger)no text:(NSString *)text item:(MZTimedTextItem *)item
 {
-    return [[[self alloc] initWithEditor:editor no:no text:text item:item] autorelease];
+    return [[self alloc] initWithEditor:editor no:no text:text item:item];
 }
 
 - (id)initWithEditor:(ChapterEditor *)theEditor no:(NSInteger)aNo text:(NSString *)theText item:(MZTimedTextItem *)theItem
@@ -28,11 +28,11 @@
     self = [super init];
     if(self)
     {
-        editor = [theEditor retain];
+        editor = theEditor;
         if(aNo >= 0)
             no = [[NSNumber alloc] initWithInteger:aNo];
 
-        text = [theText retain];
+        text = theText;
         item = [theItem mutableCopy];
     }
     return self;
@@ -43,18 +43,9 @@
     self = [super init];
     if(self)
     {
-        editor = [theEditor retain];
+        editor = theEditor;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [editor release];
-    [item release];
-    [text release];
-    [no release];
-    [super dealloc];
 }
 
 - (NSColor*)itemColor
@@ -68,7 +59,6 @@
 {
     [self willChangeValueForKey:@"text"];
     NSString* te = [newText copy];
-    [text release];
     text = te;
     [self didChangeValueForKey:@"text"];
 }
@@ -92,7 +82,6 @@
 
     if(![oldStart isEqual:[theItem start]])
         [self didChangeValueForKey:@"start"];
-    [oldItem release];
 }
 
 - (MZTimeCode *)duration
@@ -108,7 +97,6 @@
 - (void)setText:(NSString *)newText
 {
     NSString* te = [newText copy];
-    [text release];
     text = te;
     [editor itemChanged:self];
 }
@@ -123,7 +111,6 @@
 - (void)setNum:(NSInteger)newValue
 {
     [self willChangeValueForKey:@"no"];
-    [no release];
     if(newValue<=0)
         no = nil;
     else

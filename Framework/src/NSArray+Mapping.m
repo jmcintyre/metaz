@@ -14,7 +14,7 @@
 - (NSArray *)arrayByPerformingSelector:(SEL)aSelector
 {
     NSMutableArray* ret = [NSMutableArray arrayWithCapacity:[self count]];
-    for(id obj in self)
+    for(__strong id obj in self)
     {
         obj = [obj performSelector:aSelector];
         if(!obj)
@@ -27,7 +27,7 @@
 - (NSArray *)arrayByPerformingSelector:(SEL)aSelector withObject:(id)anObject
 {
     NSMutableArray* ret = [NSMutableArray arrayWithCapacity:[self count]];
-    for(id obj in self)
+    for(__strong id obj in self)
     {
         obj = [obj performSelector:aSelector withObject:anObject];
         if(!obj)
@@ -40,7 +40,7 @@
 - (NSArray *)arrayByPerformingKey:(NSString *)key
 {
     NSMutableArray* ret = [NSMutableArray arrayWithCapacity:[self count]];
-    for(id obj in self)
+    for(__strong id obj in self)
     {
         obj = [obj valueForKey:key];
         if(!obj)
@@ -53,7 +53,7 @@
 - (NSArray *)arrayByPerformingKeyPath:(NSString *)keyPath
 {
     NSMutableArray* ret = [NSMutableArray arrayWithCapacity:[self count]];
-    for(id obj in self)
+    for(__strong id obj in self)
     {
         obj = [obj valueForKeyPath:keyPath];
         if(!obj)
@@ -67,7 +67,7 @@
 - (NSArray *)arrayByPerformingProtectedKey:(NSString *)key
 {
     NSMutableArray* ret = [NSMutableArray arrayWithCapacity:[self count]];
-    for(id obj in self)
+    for(__strong id obj in self)
     {
         obj = [obj protectedValueForKey:key];
         if(!obj)
@@ -80,7 +80,7 @@
 - (NSArray *)arrayByPerformingProtectedKeyPath:(NSString *)keyPath
 {
     NSMutableArray* ret = [NSMutableArray arrayWithCapacity:[self count]];
-    for(id obj in self)
+    for(__strong id obj in self)
     {
         obj = [obj protectedValueForKeyPath:keyPath];
         if(!obj)

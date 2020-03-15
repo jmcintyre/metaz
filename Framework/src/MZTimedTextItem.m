@@ -42,7 +42,7 @@ NSString* fixText(NSString *newText)
     NSMutableArray* ret = [NSMutableArray array];
 
     NSArray* lines = [str componentsSeparatedByString:@"\n"];
-    for(NSString* line in lines)
+    for(__strong NSString* line in lines)
     {
         line = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if([line length] == 0)
@@ -98,7 +98,7 @@ NSString* fixText(NSString *newText)
     NSMutableArray* ret = [NSMutableArray array];
 
     NSArray* lines = [str componentsSeparatedByString:@"\n"];
-    for(NSString* line in lines)
+    for(__strong NSString* line in lines)
     {
         line = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if([line length] == 0)
@@ -147,7 +147,7 @@ NSString* fixText(NSString *newText)
     BOOL chapterNames = NO;
 
     NSArray* lines = [str componentsSeparatedByString:@"\n"];
-    for(NSString* line in lines)
+    for(__strong NSString* line in lines)
     {
         line = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if([line length] == 0)
@@ -228,7 +228,7 @@ NSString* fixText(NSString *newText)
 
 + (id)textItemWithStart:(MZTimeCode *)start duration:(MZTimeCode *)duration text:(NSString *)text
 {
-    return [[[self alloc] initWithStart:start duration:duration text:text] autorelease];
+    return [[self alloc] initWithStart:start duration:duration text:text];
 }
 
 - (id)initWithStart:(MZTimeCode *)aStart duration:(MZTimeCode *)aDuration text:(NSString *)aText
@@ -238,18 +238,11 @@ NSString* fixText(NSString *newText)
     {
         start = [aStart copy];
         duration = [aDuration copy];
-        text = [fixText(aText) retain];
+        text = fixText(aText);
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [start release];
-    [duration release];
-    [text release];
-    [super dealloc];
-}
 
 @synthesize start;
 @synthesize duration;
@@ -269,9 +262,9 @@ NSString* fixText(NSString *newText)
     self = [super init];
     if(self)
     {
-        start = [[decoder decodeObjectForKey:@"start"] retain];
-        duration = [[decoder decodeObjectForKey:@"duration"] retain];
-        text = [[decoder decodeObjectForKey:@"text"] retain];
+        start = [decoder decodeObjectForKey:@"start"];
+        duration = [decoder decodeObjectForKey:@"duration"];
+        text = [decoder decodeObjectForKey:@"text"];
     }
     return self;
 }
@@ -310,8 +303,7 @@ NSString* fixText(NSString *newText)
 - (void)setText:(NSString *)aText
 {
     NSString* newText = fixText(aText);
-    [text release];
-    text = [newText retain];
+    text = newText;
 }
 
 @end
