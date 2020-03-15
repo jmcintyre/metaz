@@ -14,12 +14,12 @@
 
 + (id)fixWithOther:(id)other
 {
-    return [[[self alloc] initWithOther:other] autorelease];
+    return [[self alloc] initWithOther:other];
 }
 
 + (id)fixWithOther:(id)other prefix:(NSString *)prefix
 {
-    return [[[self alloc] initWithOther:other prefix:prefix] autorelease];
+    return [[self alloc] initWithOther:other prefix:prefix];
 }
 
 - (id)initWithOther:(id)theOther
@@ -32,10 +32,10 @@
     self = [super init];
     if(self)
     {
-        prefix = [value retain];
+        prefix = value;
         oldData = [[NSMutableDictionary alloc] init];
         keyPathCount = [[NSMutableDictionary alloc] init];
-        other = [theOther retain];
+        other = theOther;
     }
     return self;
 }
@@ -49,11 +49,6 @@
             key2 = [prefix stringByAppendingString:key];
         [other removeObserver:self forKeyPath:key2];
     }
-    [other release];
-    [prefix release];
-    [oldData release];
-    [keyPathCount release];
-    [super dealloc];
 }
 
 - (void)addObserver:(NSObject *)observer
@@ -132,8 +127,7 @@
     else
         key = shortPath;
     
-    [self retain];
-    id oldValue = [[oldData objectForKey:key] retain];
+    id oldValue = [oldData objectForKey:key];
     id newValue = [other valueForKeyPath:keyPath];
     if(oldValue != newValue || newValue == NSMultipleValuesMarker)
     {
@@ -150,8 +144,6 @@
             [oldData removeObjectForKey:key];
         [self didChangeValueForKey:key];
     }
-    [self autorelease];
-    [oldValue autorelease];
 }
 
 - (id)valueForUndefinedKey:(NSString *)key

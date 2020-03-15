@@ -19,11 +19,11 @@
 
 + (id)versionWithMajor:(NSUInteger)major minor:(NSUInteger)minor bugFix:(NSUInteger)bugFix;
 {
-    return [[[self alloc] initWithMajor:major minor:minor bugFix:bugFix] autorelease];
+    return [[self alloc] initWithMajor:major minor:minor bugFix:bugFix];
 }
 
 + (id)versionWithString:(NSString *)systemVersion; {
-    return [[[self alloc] initWithString:systemVersion] autorelease];
+    return [[self alloc] initWithString:systemVersion];
 }
 
 

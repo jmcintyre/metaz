@@ -55,7 +55,7 @@
 
 + (id)observerWithOwner:(id)theOwner observer:(id)observer keyPath:(NSString *)keyPath;
 {
-    return [[[self alloc] initWithOwner:theOwner observer:observer keyPath:keyPath] autorelease];
+    return [[self alloc] initWithOwner:theOwner observer:observer keyPath:keyPath];
 }
 
 - (id)initWithOwner:(id)theOwner observer:(id)anObserver keyPath:(NSString *)theKeyPath;
@@ -63,8 +63,8 @@
     self = [super init];
     if(self)
     {
-        owner = [theOwner retain];
-        observer = [anObserver retain];
+        owner = theOwner;
+        observer = anObserver;
         keyPath = [theKeyPath copy];
     }
     return self;
@@ -92,15 +92,8 @@
 
 - (id)initWithView:(MZTextView *)theTextView
 {
-    textView = [theTextView retain];
+    textView = theTextView;
     return self;
-}
-
-- (void)dealloc
-{
-    [editor release];
-    [textView release];
-    [super dealloc];
 }
 
 - (BOOL)conformsToProtocol:(Protocol *)aProtocol
@@ -150,8 +143,8 @@
 
 - (id)initWithView:(MZTextView *)theTextView controller:(id)theController
 {
-    textView = [theTextView retain];
-    controller = [theController retain];
+    textView = theTextView;
+    controller = theController;
     editor = [[MZTextViewEditorProxy alloc] initWithView:textView];
     observers = [[NSMutableArray alloc] init];
     return self;
@@ -161,11 +154,6 @@
 {
     for(MZTextViewObserver* ob in observers)
         [controller removeObserver:ob forKeyPath:ob.keyPath];
-    [textView release];
-    [controller release];
-    [editor release];
-    [observers release];
-    [super dealloc];
 }
 
 - (BOOL)conformsToProtocol:(Protocol *)aProtocol
@@ -268,15 +256,13 @@
         withKeyPath:(NSString *)keyPath
             options:(NSDictionary *)options
 {
-    id proxy = [observableController retain];
+    id proxy = observableController;
     if([observableController isKindOfClass:[NSController class]])
     {
-        [proxy release];
         proxy = [[MZTextViewBindProxy alloc]
             initWithView:self controller:observableController];
     }
     [super bind:binding toObject:proxy withKeyPath:keyPath options:options];
-    [proxy release];
 }
 
 - (void)insertNewline:(id)sender

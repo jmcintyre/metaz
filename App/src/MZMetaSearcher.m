@@ -17,7 +17,7 @@ static MZMetaSearcher* sharedSearcher = nil;
 
 +(MZMetaSearcher *)sharedSearcher {
     if(!sharedSearcher)
-        [[[MZMetaSearcher alloc] init] release];
+        [[MZMetaSearcher alloc] init];
     return sharedSearcher;
 }
 
@@ -26,20 +26,14 @@ static MZMetaSearcher* sharedSearcher = nil;
 
     if(sharedSearcher)
     {
-        [self release];
-        self = [sharedSearcher retain];
+        self = sharedSearcher;
     } else if(self)
     {
         results = [[NSMutableArray alloc] init];
         //[results addObject:[MZSearchResult result]];
-        sharedSearcher = [self retain];
+        sharedSearcher = self;
     }
     return self;
-}
-
--(void)dealloc {
-    [results release];
-    [super dealloc];
 }
 
 #pragma mark - properties

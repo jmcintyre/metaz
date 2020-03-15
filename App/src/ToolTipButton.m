@@ -13,13 +13,6 @@
 @synthesize label;
 @synthesize tip;
 
--(void)dealloc
-{
-    [label release];
-    [tip release];
-    [super dealloc];
-}
-
 - (void)awakeFromNib
 {
     [[self cell] setHighlightsBy:NSContentsCellMask];
@@ -27,7 +20,7 @@
 
 - (void)setToolTip:(NSString *)string
 {
-    tip = [string retain];
+    tip = string;
 }
 
 - (void)viewDidMoveToWindow
@@ -38,7 +31,7 @@
 - (void)mouseEntered:(NSEvent *)theEvent
 {
     [label showToolTip:tip];
-    orgImage = [[self image] retain];
+    orgImage = [self image];
     if([orgImage name])
     {
         NSImage* hoverImg = [NSImage imageNamed:[[orgImage name] stringByAppendingString:@"Hover"]];
@@ -52,7 +45,6 @@
 {
     [label clearToolTip];
     [self setImage:orgImage];
-    [orgImage release];
     [[self cell] setHighlightsBy:NSContentsCellMask];
 }
 
@@ -63,13 +55,13 @@
     {
         if([decoder allowsKeyedCoding])
         {
-            label = [[decoder decodeObjectForKey:@"label"] retain];
-            tip = [[decoder decodeObjectForKey:@"tip"] retain];
+            label = [decoder decodeObjectForKey:@"label"];
+            tip = [decoder decodeObjectForKey:@"tip"];
         }
         else
         {
-            label = [[decoder decodeObject] retain];
-            tip = [[decoder decodeObject] retain];
+            label = [decoder decodeObject];
+            tip = [decoder decodeObject];
         }
     }
     return self;

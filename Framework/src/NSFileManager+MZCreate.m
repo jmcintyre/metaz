@@ -13,7 +13,7 @@
 
 +(NSFileManager *)manager
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 @end

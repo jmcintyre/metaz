@@ -10,16 +10,6 @@
 @synthesize tabView;
 @synthesize splitView;
 
-#pragma mark - initialization
-
--(void)dealloc {
-    [filesBox release];
-    [searchBox release];
-    [tabView release];
-    [splitView release];
-    [super dealloc];
-}
-
 #pragma mark - as window delegate
 
 - (NSSize)windowWillResize:(NSWindow *)window toSize:(NSSize)proposedFrameSize {

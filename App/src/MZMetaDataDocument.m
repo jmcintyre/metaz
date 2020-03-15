@@ -16,26 +16,18 @@
 
 + (id)itemWithTag:(MZTag*)theTag document:(MZMetaDataDocument *)theDocument;
 {
-    return [[[self alloc] initWithTag:theTag document:theDocument] autorelease];
+    return [[self alloc] initWithTag:theTag document:theDocument];
 }
 
 - (id)initWithTag:(MZTag*)theTag document:(MZMetaDataDocument *)theDocument;
 {
     self = [super init];
     if(self) {
-        tag = [theTag retain];
+        tag = theTag;
         document = theDocument;
     }
     return self;
 }
-
-- (void)dealloc
-{
-    [tag release];
-    //[document release];
-    [super dealloc];
-}
-
 
 - (NSString *)name
 {
@@ -86,11 +78,11 @@
 - (NSScriptObjectSpecifier *)objectSpecifier;
 {
     NSScriptObjectSpecifier* objectSpecifier = [document objectSpecifier];
-    return [[[NSNameSpecifier alloc] 
+    return [[NSNameSpecifier alloc]
         initWithContainerClassDescription:[objectSpecifier keyClassDescription]
                        containerSpecifier:objectSpecifier
                                       key:@"tags"
-                                    name:self.name] autorelease];
+                                    name:self.name];
 }
 
 @end
@@ -114,12 +106,12 @@
 
 + (id)documentWithEdit:(MetaEdits *)edit;
 {
-    return [[[self alloc] initWithEdit:edit] autorelease];
+    return [[self alloc] initWithEdit:edit];
 }
 
 + (id)documentWithEdit:(MetaEdits *)edit container:(NSString *)container saved:(BOOL)saved;
 {
-    return [[[self alloc] initWithEdit:edit container:container saved:saved] autorelease];
+    return [[self alloc] initWithEdit:edit container:container saved:saved];
 }
 
 - (id)initWithEdit:(MetaEdits *)edit;
@@ -132,19 +124,11 @@
     self = [super init];
     if(self)
     {
-        data = [edit retain];
-        container = [aContainer retain];
+        data = edit;
+        container = aContainer;
         saved = theSaved;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [data release];
-    [tags release];
-    [container release];
-    [super dealloc];
 }
 
 @synthesize data;
@@ -195,10 +179,10 @@
 {
     NSScriptClassDescription *containerClassDesc = (NSScriptClassDescription *)
         [NSScriptClassDescription classDescriptionForClass:[MetaZApplication class]];// 1
-    return [[[NSNameSpecifier alloc]
+    return [[NSNameSpecifier alloc]
         initWithContainerClassDescription:containerClassDesc
         containerSpecifier:nil key:container
-        name:[self displayName]] autorelease];
+        name:[self displayName]];
 }
 
 - (id)handleCloseScriptCommand:(NSScriptCommand *)cmd;

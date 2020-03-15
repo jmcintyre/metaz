@@ -17,15 +17,15 @@
 
 + (id)metaWithOwner:(id)theOwner filename:(NSString *)aFileName dictionary:(NSDictionary *)dict;
 {
-    return [[[self alloc] initWithOwner:theOwner filename:aFileName dictionary:dict] autorelease];
+    return [[self alloc] initWithOwner:theOwner filename:aFileName dictionary:dict];
 }
 
 -(id)initWithOwner:(id)theOwner filename:(NSString *)aFileName dictionary:(NSDictionary *)dict {
     self = [super init];
     if(self)
     {
-        owner = [theOwner retain];
-        loadedFileName = [aFileName retain];
+        owner = theOwner;
+        loadedFileName = aFileName;
         values = [[NSDictionary alloc]initWithDictionary:dict];
         for(MZTag* tag in [owner providedTags])
         {
@@ -34,13 +34,6 @@
         }
     }
     return self;
-}
-
-- (void)dealloc {
-    [values release];
-    [loadedFileName release];
-    [owner release];
-    [super dealloc];
 }
 
 -(NSArray *)providedTags {
@@ -135,7 +128,7 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     //return [[MetaLoaded alloc] initWithFilename:loadedFileName dictionary:values];
-    return [self retain];
+    return self;
 }
 
 @end

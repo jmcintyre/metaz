@@ -72,11 +72,11 @@
 		1B0DEEC3106139E8009D293F /* ZoomOut.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1B0DEEBD106139E8009D293F /* ZoomOut.tif */; };
 		1B0E593424071D6900534F2F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B0E593224071D6900534F2F /* logo.png */; };
 		1B0F08A31F632A2D00032E83 /* GTMLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0F089D1F632A2D00032E83 /* GTMLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B0F08A41F632A2D00032E83 /* GTMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F089E1F632A2D00032E83 /* GTMLogger.m */; };
+		1B0F08A41F632A2D00032E83 /* GTMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F089E1F632A2D00032E83 /* GTMLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1B0F08A51F632A2D00032E83 /* GTMNSObject+KeyValueObserving.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0F089F1F632A2D00032E83 /* GTMNSObject+KeyValueObserving.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B0F08A61F632A2D00032E83 /* GTMNSObject+KeyValueObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F08A01F632A2D00032E83 /* GTMNSObject+KeyValueObserving.m */; };
+		1B0F08A61F632A2D00032E83 /* GTMNSObject+KeyValueObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F08A01F632A2D00032E83 /* GTMNSObject+KeyValueObserving.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1B0F08A71F632A2D00032E83 /* GTMNSString+URLArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0F08A11F632A2D00032E83 /* GTMNSString+URLArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B0F08A81F632A2D00032E83 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F08A21F632A2D00032E83 /* GTMNSString+URLArguments.m */; };
+		1B0F08A81F632A2D00032E83 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F08A21F632A2D00032E83 /* GTMNSString+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1B0F08AA1F632AA900032E83 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0F08A91F632AA900032E83 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B119D1F103F17D5004C93D3 /* ResizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B119D1E103F17D5004C93D3 /* ResizeController.m */; };
 		1B119FD710444DC4004C93D3 /* MZMetaLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B119FD610444DC4004C93D3 /* MZMetaLoader.m */; };
@@ -208,8 +208,6 @@
 		1BBC026110FC115F001DDB1C /* MZTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC025F10FC115F001DDB1C /* MZTaskOperation.m */; };
 		1BC0661910AE223A005C2A9F /* PresetsPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC0661710AE223A005C2A9F /* PresetsPanel.xib */; };
 		1BC0671410AE44CA005C2A9F /* presets.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BC0671310AE44CA005C2A9F /* presets.png */; };
-		1BC256381192C183001B9E1E /* NSObject+WaitUntilChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BC256361192C183001B9E1E /* NSObject+WaitUntilChange.h */; };
-		1BC256391192C183001B9E1E /* NSObject+WaitUntilChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC256371192C183001B9E1E /* NSObject+WaitUntilChange.m */; };
 		1BCC97021076B73C007EFF57 /* NSInvocation+Wrapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCC97001076B73C007EFF57 /* NSInvocation+Wrapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BCC97031076B73C007EFF57 /* NSInvocation+Wrapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCC97011076B73C007EFF57 /* NSInvocation+Wrapping.m */; };
 		1BCC990710771262007EFF57 /* FactorySettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BCC990610771262007EFF57 /* FactorySettings.plist */; };
@@ -726,8 +724,6 @@
 		1BBC025E10FC115F001DDB1C /* MZTaskOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTaskOperation.h; sourceTree = "<group>"; };
 		1BBC025F10FC115F001DDB1C /* MZTaskOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTaskOperation.m; sourceTree = "<group>"; };
 		1BC0671310AE44CA005C2A9F /* presets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = presets.png; path = App/resources/presets.png; sourceTree = "<group>"; };
-		1BC256361192C183001B9E1E /* NSObject+WaitUntilChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WaitUntilChange.h"; sourceTree = "<group>"; };
-		1BC256371192C183001B9E1E /* NSObject+WaitUntilChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WaitUntilChange.m"; sourceTree = "<group>"; };
 		1BCC97001076B73C007EFF57 /* NSInvocation+Wrapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Wrapping.h"; sourceTree = "<group>"; };
 		1BCC97011076B73C007EFF57 /* NSInvocation+Wrapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Wrapping.m"; sourceTree = "<group>"; };
 		1BCC990610771262007EFF57 /* FactorySettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FactorySettings.plist; path = App/resources/FactorySettings.plist; sourceTree = "<group>"; };
@@ -947,8 +943,6 @@
 				1B92BC56108890090057EFD7 /* NSObject+ProtectedKeyValue.m */,
 				1B99354E10AC818300E78D2D /* NSXMLNode+MZExtensions.h */,
 				1B99354F10AC818300E78D2D /* NSXMLNode+MZExtensions.m */,
-				1BC256361192C183001B9E1E /* NSObject+WaitUntilChange.h */,
-				1BC256371192C183001B9E1E /* NSObject+WaitUntilChange.m */,
 				1BAC91BB13F060300022D625 /* NSString+MZAllInCharacterSet.h */,
 				1BAC91BC13F060300022D625 /* NSString+MZAllInCharacterSet.m */,
 				1B0696D5149BFB2D00B5FA90 /* NSString+MZQueryString.h */,
@@ -1609,7 +1603,6 @@
 				1B3AD7F3110595C300B33F85 /* NSString+TempFile.h in Headers */,
 				1BAD35FE118D4C470052DE3B /* MZReadOperationsController.h in Headers */,
 				1BAD3600118D4C470052DE3B /* NSFileManager+MZCreate.h in Headers */,
-				1BC256381192C183001B9E1E /* NSObject+WaitUntilChange.h in Headers */,
 				1B0F08A71F632A2D00032E83 /* GTMNSString+URLArguments.h in Headers */,
 				1B0604AD1199E24700589ACE /* MZSearchProviderPlugin.h in Headers */,
 				1BAC91BD13F060300022D625 /* NSString+MZAllInCharacterSet.h in Headers */,
@@ -2191,7 +2184,6 @@
 				1B3AD7F4110595C300B33F85 /* NSString+TempFile.m in Sources */,
 				1BAD35FF118D4C470052DE3B /* MZReadOperationsController.m in Sources */,
 				1BAD3601118D4C470052DE3B /* NSFileManager+MZCreate.m in Sources */,
-				1BC256391192C183001B9E1E /* NSObject+WaitUntilChange.m in Sources */,
 				1B0604AE1199E24700589ACE /* MZSearchProviderPlugin.m in Sources */,
 				1BAC91BE13F060300022D625 /* NSString+MZAllInCharacterSet.m in Sources */,
 				1B27653A240B5F2900723C13 /* Data+Base64URL.swift in Sources */,
@@ -2560,6 +2552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2590,6 +2583,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2617,6 +2611,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_MODEL_TUNING = G5;
@@ -2693,6 +2688,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2729,6 +2725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
@@ -2773,6 +2770,7 @@
 		1B44938110C95B0A00B9C751 /* Remote Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/**";
@@ -3041,6 +3039,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
@@ -3086,6 +3085,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
@@ -3128,6 +3128,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3157,6 +3158,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3183,6 +3185,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_MODEL_TUNING = G5;
@@ -3210,6 +3213,7 @@
 		1BEA6E74106EF2A1004B1A7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/**";
@@ -3242,6 +3246,7 @@
 		1BEA6E75106EF2A1004B1A7F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/**";
@@ -3275,6 +3280,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3311,6 +3317,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_POSTPROCESSING = YES;

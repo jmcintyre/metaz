@@ -41,7 +41,7 @@ static MZMetaLoader* sharedLoader = nil;
 +(MZMetaLoader *)sharedLoader
 {
     if(!sharedLoader)
-        [[[MZMetaLoader alloc] init] release];
+        [[MZMetaLoader alloc] init];
     return sharedLoader;
 }
 
@@ -51,24 +51,15 @@ static MZMetaLoader* sharedLoader = nil;
 
     if(sharedLoader)
     {
-        [self release];
-        self = [sharedLoader retain];
+        self = sharedLoader;
     } else if(self)
     {
         files = [[NSMutableArray alloc] init];
         loading = [[NSMutableArray alloc] init];
-        sharedLoader = [self retain];
+        sharedLoader = self;
     }
     return self;
 }
-
--(void)dealloc
-{
-    [files release];
-    [loading release];
-    [super dealloc];
-}
-
 
 -(NSArray *)types
 {
@@ -176,7 +167,7 @@ static MZMetaLoader* sharedLoader = nil;
     BOOL suppressAlreadyLoadedWarning = [[NSUserDefaults standardUserDefaults]
         boolForKeyPath:MZDataProviderFileAlreadyLoadedWarningKey];
     NSMutableArray* realFileNames = [NSMutableArray arrayWithArray:fileNames];
-    NSMutableIndexSet* realIndexes = [[[NSMutableIndexSet alloc] initWithIndexSet:indexes] autorelease];
+    NSMutableIndexSet* realIndexes = [[NSMutableIndexSet alloc] initWithIndexSet:indexes];
         
     NSArray* loadedFileNames = [files arrayByPerformingKeyPath:@"loadedFileName"];
     NSMutableArray* queuedFileNames = [NSMutableArray array];
@@ -248,7 +239,6 @@ static MZMetaLoader* sharedLoader = nil;
                 [[NSUserDefaults standardUserDefaults]
                     setBool:suppressAlreadyLoadedWarning 
                     forKeyPath:MZDataProviderFileAlreadyLoadedWarningKey];
-                [alert release];
             }
             [realFileNames removeObjectAtIndex:i];
             [realIndexes removeIndex:index];
@@ -296,8 +286,6 @@ static MZMetaLoader* sharedLoader = nil;
 
 - (void)loadedFile:(MZLoadOperation *)operation
 {
-    [operation retain];
-
     MZVideoType currentVideoType = defaultVideoType;
     if( operation.scriptCommand )
     {
@@ -337,7 +325,6 @@ static MZMetaLoader* sharedLoader = nil;
             [operation.scriptCommand setScriptErrorString:errMsg];
             [operation.scriptCommand resumeExecutionWithResult:nil];
         }
-        [operation release];
         return;
     }
 
@@ -376,9 +363,6 @@ static MZMetaLoader* sharedLoader = nil;
             lastSelection = [[sel selectedItem] tag];
             BOOL applyAll = [loading count]>1 && [[alert suppressionButton] state] == NSOnState;
 
-            [sel release];
-            [alert release];
-
             if(returnCode != NSAlertFirstButtonReturn)
             {
                 [loading removeObject:operation];
@@ -388,7 +372,6 @@ static MZMetaLoader* sharedLoader = nil;
                     [operation.scriptCommand setScriptErrorNumber:userCanceledErr];
                     [operation.scriptCommand resumeExecutionWithResult:nil];
                 }
-                [operation release];
                 return;
             }
                 
@@ -414,8 +397,6 @@ static MZMetaLoader* sharedLoader = nil;
         MZMetaDataDocument* doc = [MZMetaDataDocument documentWithEdit:edits];
         [operation.scriptCommand resumeExecutionWithResult:doc];
     }
-
-    [operation release];
 }
 
 - (void)notifyLoadedFile:(MZLoadOperation *)operation;
@@ -436,7 +417,7 @@ static MZMetaLoader* sharedLoader = nil;
 - (void)moveObjects:(NSArray *)objects toIndex:(NSUInteger)index
 {
     [self willChangeValueForKey:@"files"];
-    NSMutableIndexSet* idx = [[[NSMutableIndexSet alloc] init] autorelease];
+    NSMutableIndexSet* idx = [[NSMutableIndexSet alloc] init];
     for(MetaEdits* edit in objects)
     {
         for(int i=[files count]-1; i>=0; i--)
@@ -470,7 +451,7 @@ static MZMetaLoader* sharedLoader = nil;
 
 + (id)loadWithFilePath:(NSString *)filePath atIndex:(NSUInteger )index extra:(NSDictionary *)extra
 {
-    return [[[self alloc] initWithFilePath:filePath atIndex:index extra:extra] autorelease];
+    return [[self alloc] initWithFilePath:filePath atIndex:index extra:extra];
 }
 
 - (id)initWithFilePath:(NSString *)theFilePath atIndex:(NSUInteger )theIndex extra:(NSDictionary *)extra
@@ -478,23 +459,12 @@ static MZMetaLoader* sharedLoader = nil;
     self = [super init];
     if(self)
     {
-        filePath = [theFilePath retain];
+        filePath = theFilePath;
         index = theIndex;
         delegate = [[MZLoadOperationDelegate alloc] initWithOwner:self];
-        controller = [[[MZPluginController sharedInstance] loadFromFile:filePath delegate:delegate extra:extra] retain];
+        controller = [[MZPluginController sharedInstance] loadFromFile:filePath delegate:delegate extra:extra];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [filePath release];
-    [edits release];
-    [error release];
-    [controller release];
-    [delegate release];
-    [scriptCommand release];
-    [super dealloc];
 }
 
 @synthesize edits;
@@ -509,8 +479,8 @@ static MZMetaLoader* sharedLoader = nil;
             fromFile:(NSString *)fileName
                error:(NSError *)theError
 {
-    edits = [theEdits retain];
-    error = [theError retain];
+    edits = theEdits;
+    error = theError;
     
     // loadedFile: runs a modeal alert so we use NSEventTrackingRunLoopMode
     // to avoid showing more than one alert at a time

@@ -22,7 +22,7 @@ static MZNotification* _MZSharedNotification = nil;
     @synchronized(self)
     {
         if (_MZSharedNotification == nil)
-            [[[MZNotification alloc] init] release];
+            [[MZNotification alloc] init];
         _shared = _MZSharedNotification;
     }
     return _shared;
@@ -53,12 +53,12 @@ static MZNotification* _MZSharedNotification = nil;
     {
         if(_MZSharedNotification != nil)
         {
-            [self release];
-            self = [_MZSharedNotification retain];
-        } else if(self)
+            self = _MZSharedNotification;
+        }
+        else if(self)
         {
             [self load];
-            _MZSharedNotification = [self retain];
+            _MZSharedNotification = self;
         }
     }
     return self;

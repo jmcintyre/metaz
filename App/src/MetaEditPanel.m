@@ -12,10 +12,6 @@
 @implementation MetaEditPanel
 @synthesize undoController;
 
--(void)dealloc {
-    [undoController release];
-    [super dealloc];
-}
 
 -(NSUndoManager *)undoManager {
     NSUndoManager* man = [undoController undoManager];

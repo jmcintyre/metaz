@@ -31,12 +31,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [editors release];
-    [super dealloc];
-}
-
 - (void)registerUndoName:(NSUndoManager *)manager
 {
     [manager setActionName:NSLocalizedString(@"Apply Search", @"Apply search undo name")];

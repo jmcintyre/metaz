@@ -243,12 +243,12 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 + (id)tagWithIdentifier:(NSString *)identifier
 {
-    return [[[self alloc] initWithIdentifier:identifier] autorelease];
+    return [[self alloc] initWithIdentifier:identifier];
 }
 
 + (id)tagWithIdentifier:(NSString *)identifier scriptName:(NSString *)scriptName
 {
-    return [[[self alloc] initWithIdentifier:identifier scriptName:scriptName] autorelease];
+    return [[self alloc] initWithIdentifier:identifier scriptName:scriptName];
 }
 
 - (id)initWithIdentifier:(NSString *)theIdentifier
@@ -261,17 +261,10 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
     self = [super init];
     if(self)
     {
-        identifier = [theIdentifier retain];
-        scriptName = [theScriptName retain];
+        identifier = theIdentifier;
+        scriptName = theScriptName;
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [identifier release];
-    [scriptName release];
-    [super dealloc];
 }
 
 @synthesize identifier;
@@ -294,13 +287,13 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (id)convertValueToObject:(void*)buffer
 {
-    id* v = (id*)buffer;
+    __weak id* v = (__weak id*)buffer;
     return *v;
 }
 
 - (void)convertObject:(id)obj toValue:(void*)buffer
 {
-    id* v = (id*)buffer;
+    __weak id* v = (__weak id*)buffer;
     *v = obj;
 }
 
@@ -361,7 +354,7 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    return [[[NSTextFieldCell alloc] initTextCell:@""] autorelease]; 
+    return [[NSTextFieldCell alloc] initTextCell:@""];
 }
 
 - (id)objectFromString:(NSString *)str
@@ -386,18 +379,18 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    return [[[NSTextFieldCell alloc] initTextCell:@""] autorelease]; 
+    return [[NSTextFieldCell alloc] initTextCell:@""];
 }
 
 - (id)convertValueToObject:(void*)buffer
 {
-    NSDate** str = (NSDate**)buffer;
+    __weak NSDate** str = (__weak NSDate**)buffer;
     return *str;
 }
 
 - (void)convertObject:(id)obj toValue:(void*)buffer
 {
-    NSDate** str = (NSDate**)buffer;
+    __weak NSDate** str = (__weak NSDate**)buffer;
     *str = obj;
 }
 
@@ -424,18 +417,18 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    return [[[NSTextFieldCell alloc] initTextCell:@""] autorelease]; 
+    return [[NSTextFieldCell alloc] initTextCell:@""]; 
 }
 
 - (id)convertValueToObject:(void*)buffer
 {
-    id* str = (id*)buffer;
+    __weak id* str = (__weak id*)buffer;
     return *str;
 }
 
 - (void)convertObject:(id)obj toValue:(void*)buffer
 {
-    id* str = (id*)buffer;
+    __weak id* str = (__weak id*)buffer;
     *str = obj;
 }
 
@@ -466,18 +459,18 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    return [[[NSTextFieldCell alloc] initTextCell:@""] autorelease]; 
+    return [[NSTextFieldCell alloc] initTextCell:@""];
 }
 
 - (id)convertValueToObject:(void*)buffer
 {
-    NSNumber** str = (NSNumber**)buffer;
+    __weak NSNumber** str = (__weak NSNumber**)buffer;
     return *str;
 }
 
 - (void)convertObject:(id)obj toValue:(void*)buffer
 {
-    NSNumber** str = (NSNumber**)buffer;
+    __weak NSNumber** str = (__weak NSNumber**)buffer;
     *str = obj;
 }
 
@@ -496,18 +489,18 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    return [[[NSTextFieldCell alloc] initTextCell:@""] autorelease]; 
+    return [[NSTextFieldCell alloc] initTextCell:@""];
 }
 
 - (id)convertValueToObject:(void*)buffer
 {
-    NSNumber** str = (NSNumber**)buffer;
+    __weak NSNumber** str = (__weak NSNumber**)buffer;
     return *str;
 }
 
 - (void)convertObject:(id)obj toValue:(void*)buffer
 {
-    NSNumber** str = (NSNumber**)buffer;
+    __weak NSNumber** str = (__weak NSNumber**)buffer;
     *str = obj;
 }
 
@@ -527,18 +520,18 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    return [[[NSTextFieldCell alloc] initTextCell:@""] autorelease]; 
+    return [[NSTextFieldCell alloc] initTextCell:@""];
 }
 
 - (id)convertValueToObject:(void*)buffer
 {
-    MZTimeCode** str = (MZTimeCode**)buffer;
+    __weak MZTimeCode** str = (__weak MZTimeCode**)buffer;
     return *str;
 }
 
 - (void)convertObject:(id)obj toValue:(void*)buffer
 {
-    MZTimeCode** str = (MZTimeCode**)buffer;
+    __weak MZTimeCode** str = (__weak MZTimeCode**)buffer;
     *str = obj;
 }
 
@@ -670,13 +663,6 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
     return self;
 }
 
-- (void)dealloc
-{
-    [typeNames release];
-    [typeValues release];
-    [super dealloc];
-}
-
 - (NSArray *)values
 {
     return typeValues;
@@ -699,7 +685,7 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    NSPopUpButtonCell* cell = [[[NSPopUpButtonCell alloc] initTextCell:@"" pullsDown:NO] autorelease]; 
+    NSPopUpButtonCell* cell = [[NSPopUpButtonCell alloc] initTextCell:@"" pullsDown:NO];
     [cell addItemWithTitle:NSLocalizedStringFromTable(@"Home Movie", @"VideoType", @"Video type") tag:MZHomeMovieVideoType];
     [cell addItemWithTitle:NSLocalizedStringFromTable(@"Normal", @"VideoType", @"Video type") tag:MZNormalVideoType];
     [cell addItemWithTitle:NSLocalizedStringFromTable(@"Audiobook", @"VideoType", @"Video type") tag:MZAudiobookVideoType];
@@ -808,14 +794,6 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
     return self;
 }
 
-- (void)dealloc
-{
-    [ratingNames release];
-    [ratingNamesNonStrict release];
-    [ratingValuesNonStrict release];
-    [super dealloc];
-}
-
 - (NSString *)enumScriptName;
 {
     return @"rating";
@@ -823,7 +801,7 @@ static NSMutableDictionary *sharedTagScriptNames = nil;
 
 - (NSCell *)editorCell
 {
-    NSPopUpButtonCell* cell = [[[NSPopUpButtonCell alloc] initTextCell:@"" pullsDown:NO] autorelease];
+    NSPopUpButtonCell* cell = [[NSPopUpButtonCell alloc] initTextCell:@"" pullsDown:NO];
     NSInteger count = [ratingNames count];
     for(NSInteger i=0; i<count; i++)
     {

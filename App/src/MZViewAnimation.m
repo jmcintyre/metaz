@@ -21,7 +21,6 @@
 {
     self.startAnimationLink = nil;
     self.stopAnimationLink = nil;
-    [super dealloc];
 }
 
 - (void)stopAnimationChain;

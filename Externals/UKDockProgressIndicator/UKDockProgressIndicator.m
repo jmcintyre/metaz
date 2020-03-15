@@ -115,7 +115,7 @@
     NSImage* appIcon = [NSImage imageNamed: @"NSApplicationIcon"];
     
     NSRect rect = NSMakeRect(0, 0, 128, 128);
-    NSImage* dockIcon = [[[NSImage alloc] initWithSize:rect.size] autorelease];
+    NSImage* dockIcon = [[NSImage alloc] initWithSize:rect.size];
 
     [dockIcon lockFocus];
     NSRect box = { {4, 4}, {120, 16} };

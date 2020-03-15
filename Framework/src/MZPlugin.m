@@ -17,7 +17,7 @@
     self = [super init];
     if(self)
     {
-        bundle = [theBundle retain];
+        bundle = theBundle;
     }
     return self;
 }
@@ -25,15 +25,6 @@
 - (MZPlugin *)init
 {
     return [self initWithBundle:[NSBundle bundleForClass:[self class]]];
-}
-
-- (void)dealloc
-{
-    [preferencesView release];
-    [nib release];
-    [topLevelObjects release];
-    [bundle release];
-    [super dealloc];
 }
 
 @synthesize bundle;
@@ -130,7 +121,7 @@
         
         NSArray* theTopLevelObjects = nil;
         if([nib instantiateWithOwner:self topLevelObjects:&theTopLevelObjects])
-            topLevelObjects = [theTopLevelObjects retain];
+            topLevelObjects = theTopLevelObjects;
     }
     return [self preferencesView];
 }
@@ -150,8 +141,7 @@
 
 - (void)setPreferencesView:(NSView *)view
 {
-    [preferencesView release];
-    preferencesView = [view retain];
+    preferencesView = view;
 }
 
 - (NSString *)description

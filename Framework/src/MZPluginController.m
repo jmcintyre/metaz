@@ -180,16 +180,6 @@ static MZPluginController *gInstance = NULL;
     return self;
 }
 
-- (void)dealloc
-{
-    [plugins release];
-    [loadedPlugins release];
-    [loadQueue release];
-    [saveQueue release];
-    [searchQueue release];
-    [loadedBundles release];
-    [super dealloc];
-}
 
 @synthesize delegate;
 @synthesize loadQueue;
@@ -313,7 +303,6 @@ static MZPluginController *gInstance = NULL;
     }
     NSSortDescriptor* desc = [[NSSortDescriptor alloc ] initWithKey:@"label" ascending:YES];
     [ret sortUsingDescriptors:[NSArray arrayWithObject:desc]];
-    [desc release];
     return ret;
 }
 
@@ -348,7 +337,6 @@ static MZPluginController *gInstance = NULL;
     }
     NSSortDescriptor* desc = [[NSSortDescriptor alloc ] initWithKey:@"label" ascending:YES];
     [ret sortUsingDescriptors:[NSArray arrayWithObject:desc]];
-    [desc release];
     return ret;
 }
 
@@ -371,7 +359,7 @@ static MZPluginController *gInstance = NULL;
 {
     id ret = nil;
     NSString* pluginPath = [[pathURL path] stringByAppendingPathComponent:name];
-    CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)[pluginPath pathExtension], NULL);
+    CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[pluginPath pathExtension], NULL);
     MZLoggerDebug(@"Loading plugin at path '%@'", pluginPath);
     if(UTTypeConformsTo(uti, kMZUTMetaZPlugin))
     {
@@ -585,11 +573,10 @@ static MZPluginController *gInstance = NULL;
         }
     }
     else
-        plugin = [source retain];
+        plugin = source;
 
     [loadedBundles addObject:identifier];
     [loadedPlugins addObject:plugin];
-    [plugin release];
     MZLoggerInfo(@"Loaded plugin '%@'", identifier);
     [plugin didLoad];
     if([[self delegate] respondsToSelector:@selector(pluginController:loadedPlugin:)])
@@ -638,7 +625,6 @@ static MZPluginController *gInstance = NULL;
 {
     if([plugin canUnload])
     {
-        [plugin retain];
         [plugin willUnload];
         
         [self willChangeValueForKey:@"plugins"];
@@ -653,7 +639,6 @@ static MZPluginController *gInstance = NULL;
         [loadedBundles removeObject:[plugin identifier]];
         
         BOOL unloaded = [plugin unload];
-        [plugin release];
         if(unloaded)
         {
             if([[self delegate] respondsToSelector:
@@ -705,7 +690,7 @@ static MZPluginController *gInstance = NULL;
         NSArray* types = [provider types];
         for(NSString* type in types)
         {
-            if(UTTypeConformsTo((CFStringRef)uti, (CFStringRef)type))
+            if(UTTypeConformsTo((__bridge CFStringRef)uti, (__bridge CFStringRef)type))
                 return provider;
         }
     }
@@ -714,17 +699,15 @@ static MZPluginController *gInstance = NULL;
 
 - (MZDataProviderPlugin *)dataProviderForPath:(NSString *)path
 {
-    NSArray* types = (NSArray*)UTTypeCreateAllIdentifiersForTag(kUTTagClassFilenameExtension, (CFStringRef)[path pathExtension], kUTTypeAudiovisualContent);
+    NSArray* types = (NSArray*)CFBridgingRelease(UTTypeCreateAllIdentifiersForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[path pathExtension], kUTTypeAudiovisualContent));
     for(NSString* uti in types)
     {
         MZDataProviderPlugin* ret = [self dataProviderForType:uti];
         if(ret)
         {
-            [types release];
             return ret;
         }
     }
-    [types release];
     return nil;
 }
 
@@ -796,22 +779,17 @@ static MZPluginController *gInstance = NULL;
 
 + (id)notifierWithDelegate:(id<MZDataWriteDelegate>)delegate
 {
-    return [[[self alloc] initWithDelegate:delegate] autorelease];
+    return [[self alloc] initWithDelegate:delegate];
 }
 
 - (id)initWithDelegate:(id<MZDataWriteDelegate>)theDelegate
 {
     self = [super init];
     if(self)
-        delegate = [theDelegate retain];
+        delegate = theDelegate;
     return self;
 }
 
-- (void)dealloc
-{
-    [delegate release];
-    [super dealloc];
-}
 
 - (void)dataProvider:(MZDataProviderPlugin *)provider
           controller:(id<MZDataController>)controller
@@ -890,7 +868,7 @@ static MZPluginController *gInstance = NULL;
 + (id)notifierWithController:(MZPluginController *)controller
                     delegate:(id<MZEditsReadDelegate>)delegate
 {
-    return [[[self alloc] initWithController:controller delegate:delegate] autorelease];
+    return [[self alloc] initWithController:controller delegate:delegate];
 }
 
 - (id)initWithController:(MZPluginController *)theController
@@ -899,18 +877,12 @@ static MZPluginController *gInstance = NULL;
     self = [super init];
     if(self)
     {
-        controller = [theController retain];
-        delegate = [theDelegate retain];
+        controller = theController;
+        delegate = theDelegate;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [controller release];
-    [delegate release];
-    [super dealloc];
-}
 
 - (void)dataProvider:(MZDataProviderPlugin *)provider
           controller:(id<MZDataController>)theController
@@ -951,7 +923,7 @@ static MZPluginController *gInstance = NULL;
                     delegate:(id<MZEditsReadDelegate>)delegate
                     fromFile:(NSString *)fileName
 {
-    return [[[self alloc] initWithController:controller delegate:delegate fromFile:fileName] autorelease];
+    return [[self alloc] initWithController:controller delegate:delegate fromFile:fileName];
 }
 
 - (id)initWithController:(MZPluginController *)theController
@@ -962,17 +934,12 @@ static MZPluginController *gInstance = NULL;
                             delegate:theDelegate];
     if(self)
     {
-        fileName = [theFileName retain];
+        fileName = theFileName;
         [self performSelectorOnMainThread:@selector(noPlugin) withObject:nil waitUntilDone:NO];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [fileName release];
-    [super dealloc];
-}
 
 - (void)noPlugin
 {
@@ -1005,7 +972,7 @@ static MZPluginController *gInstance = NULL;
 
 + (id)searchWithDelegate:(id<MZSearchProviderDelegate>)theDelegate
 {
-    return [[[MZSearchDelegate alloc] initWithSearchDelegate:theDelegate] autorelease];
+    return [[MZSearchDelegate alloc] initWithSearchDelegate:theDelegate];
 }
 
 - (id)initWithSearchDelegate:(id<MZSearchProviderDelegate>)theDelegate
@@ -1013,16 +980,11 @@ static MZPluginController *gInstance = NULL;
     self = [super init];
     if(self)
     {
-        delegate = [theDelegate retain];
+        delegate = theDelegate;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [delegate release];
-    [super dealloc];
-}
 
 - (void)performedSearch
 {

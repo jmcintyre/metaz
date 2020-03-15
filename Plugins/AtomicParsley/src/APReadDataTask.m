@@ -13,7 +13,7 @@
 
 + (id)taskWithProvider:(AtomicParsleyPlugin *)provider fromFileName:(NSString *)fileName dictionary:(NSMutableDictionary *)tagdict
 {
-    return [[[[self class] alloc] initWithProvider:provider fromFileName:fileName dictionary:tagdict] autorelease];
+    return [[[self class] alloc] initWithProvider:provider fromFileName:fileName dictionary:tagdict];
 }
 
 - (id)initWithProvider:(AtomicParsleyPlugin *)theProvider fromFileName:(NSString *)theFileName dictionary:(NSMutableDictionary *)theTagdict
@@ -22,20 +22,13 @@
     if(self)
     {
         self.file = [NSURL fileURLWithPath:theFileName];
-        provider = [theProvider retain];
-        fileName = [theFileName retain];
-        tagdict = [theTagdict retain];
+        provider = theProvider;
+        fileName = theFileName;
+        tagdict = theTagdict;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [provider release];
-    [fileName release];
-    [tagdict release];
-    [super dealloc];
-}
 
 - (void)parseData
 {
@@ -49,7 +42,7 @@
 
 + (id)taskWithDictionary:(NSMutableDictionary *)tagdict
 {
-    return [[[[self class] alloc] initWithDictionary:tagdict] autorelease];
+    return [[[self class] alloc] initWithDictionary:tagdict];
 }
 
 - (id)initWithDictionary:(NSMutableDictionary *)theTagdict
@@ -57,19 +50,13 @@
     self = [super init];
     if(self)
     {
-        tagdict = [theTagdict retain];
-        file = [[NSString temporaryPathWithFormat:@"MetaZImage_%@"] retain];
+        tagdict = theTagdict;
+        file = [NSString temporaryPathWithFormat:@"MetaZImage_%@"];
     }
     return self;
 }
 
 
-- (void)dealloc
-{
-    [tagdict release];
-    [file release];
-    [super dealloc];
-}
 
 @synthesize file;
 
@@ -123,7 +110,7 @@
 
 + (id)taskWithFileName:(NSString*)fileName dictionary:(NSMutableDictionary *)tagdict;
 {
-    return [[[[self class] alloc] initWithFileName:fileName dictionary:tagdict] autorelease];
+    return [[[self class] alloc] initWithFileName:fileName dictionary:tagdict];
 }
 
 - (id)initWithFileName:(NSString*)fileName dictionary:(NSMutableDictionary *)theTagdict;
@@ -133,23 +120,18 @@
     {
         self.file = [NSURL fileURLWithPath:fileName];
         [self setArguments:[NSArray arrayWithObjects:@"-l", fileName, nil]];
-        tagdict = [theTagdict retain];
+        tagdict = theTagdict;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [tagdict release];
-    [super dealloc];
-}
 
 - (void)parseData
 {
     if(!tagdict)
         return;
         
-    NSString* str = [[[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding] autorelease];
+    NSString* str = [[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding];
     
     NSRange f = [str rangeOfString:@"Duration "];
     NSString* movieDurationStr = [str substringWithRange:NSMakeRange(f.location+f.length, 12)];

@@ -15,7 +15,6 @@
 - (void)dealloc
 {
     [self unregisterObservers];
-    [super dealloc];
 }
 
 - (void)didLoad

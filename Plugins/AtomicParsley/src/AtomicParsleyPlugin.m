@@ -25,7 +25,7 @@
 + (void)logFromProgram:(NSString *)program pipe:(NSPipe *)pipe
 {
     NSData* data = [[pipe fileHandleForReading] readDataToEndOfFile];
-    NSString* str = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+    NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     if([str length] > 0)
         MZLoggerDebug(@"Read from %@: %@", program, str);
 }
@@ -44,7 +44,6 @@
     int ret = [task terminationStatus];
     if(ret!=0)
         MZLoggerDebug(@"Encountered bad chapter write issue: %d", ret);
-    [task release];
     return ret;
 }
 
@@ -60,7 +59,6 @@
     [task waitUntilExit];
     [self logFromProgram:@"mp4chaps" pipe:err];
     int ret = [task terminationStatus];
-    [task release];
     return ret;
 }
 
@@ -77,24 +75,21 @@
     [task waitUntilExit];
     [self logFromProgram:@"mp4chaps" pipe:err];
     int ret = [task terminationStatus];
-    [task release];
     return ret;
 }
 
 + (NSString *)launchPath
 {
     NSBundle* myBundle = [NSBundle bundleForClass:[AtomicParsleyPlugin class]];
-    CFURLRef pathUrl = (CFURLRef)[myBundle URLForResource:@"AtomicParsley" withExtension:NULL];
-    NSString* path = (NSString*)CFURLCopyFileSystemPath(pathUrl, kCFURLPOSIXPathStyle);
-    return [path autorelease];
+    NSURL* pathUrl = [myBundle URLForResource:@"AtomicParsley" withExtension:NULL];
+    return [pathUrl path];
 }
 
 + (NSString *)launchChapsPath
 {
     NSBundle* myBundle = [NSBundle bundleForClass:[AtomicParsleyPlugin class]];
-    CFURLRef pathUrl = (CFURLRef)[myBundle URLForResource:@"mp4chaps" withExtension:NULL];
-    NSString* path = (NSString*)CFURLCopyFileSystemPath(pathUrl, kCFURLPOSIXPathStyle);
-    return [path autorelease];
+    NSURL* pathUrl = [myBundle URLForResource:@"mp4chaps" withExtension:NULL];
+    return [pathUrl path];
 }
 
 
@@ -104,7 +99,7 @@
     if(self)
     {
         writes = [[NSMutableArray alloc] init];
-        tags = [[MZTag allKnownTags] retain];
+        tags = [MZTag allKnownTags];
         NSArray* readmapkeys = [NSArray arrayWithObjects:
             @"©nam", @"©ART", @"©day",
             //@"com.apple.iTunes;iTunEXTC", @"©gen",
@@ -404,18 +399,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [writes release];
-    [tags release];
-    [read_mapping release];
-    [write_mapping release];
-    [rating_read release];
-    [rating_write release];
-    [videotype_read release];
-    [super dealloc];
-}
-
 - (BOOL)isBuiltIn
 {
     return YES;
@@ -460,7 +443,7 @@
 
 - (void)parseData:(NSData *)data withFileName:(NSString *)fileName dict:(NSMutableDictionary *)tagdict
 {
-    NSString* str = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+    NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSArray* atoms = [str componentsSeparatedByString:@"Atom \""];
     
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:[atoms count]];
@@ -940,7 +923,7 @@ void sortTags(NSMutableArray* args, NSDictionary* changes, NSString* tag, NSStri
                                                                          format:NSPropertyListXMLFormat_v1_0
                                                                         options:0
                                                                           error:NULL];
-            NSString* movi = [[[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding] autorelease];
+            NSString* movi = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
             [args addObject:movi];
         }
         else {

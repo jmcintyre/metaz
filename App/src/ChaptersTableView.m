@@ -11,13 +11,6 @@
 
 @implementation ChaptersTableView
 
-- (void)dealloc
-{
-    [editor release];
-    [filesController release];
-    [super dealloc];
-}
-
 @synthesize editor;
 @synthesize filesController;
 

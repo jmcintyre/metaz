@@ -67,12 +67,6 @@
     return self;
 }
 
--(void)dealloc {
-    [undoController release];
-    [filesController release];
-    [super dealloc];
-}
-
 #pragma mark - actions
 -(IBAction)delete:(id)sender
 {

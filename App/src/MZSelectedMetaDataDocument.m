@@ -25,10 +25,10 @@
 {
     NSScriptClassDescription *containerClassDesc = (NSScriptClassDescription *)
         [NSScriptClassDescription classDescriptionForClass:[MetaZApplication class]];// 1
-    return [[[NSNameSpecifier alloc]
+    return [[NSNameSpecifier alloc]
         initWithContainerClassDescription:containerClassDesc
         containerSpecifier:nil key:@"selectedDocuments"
-        name:[self displayName]] autorelease];
+        name:[self displayName]];
 }
 
 - (NSArray *)tags;

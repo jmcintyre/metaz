@@ -20,10 +20,10 @@
 }
 - (id)initWithController:(NSArrayController*)controller;
 
-@property (nonatomic, retain) IBOutlet NSArrayController* filesController;
-@property (nonatomic, retain) IBOutlet NSArrayController* presetsController;
-@property (nonatomic, retain) IBOutlet NSTableView* presetsView;
-@property (nonatomic, retain) IBOutlet NSSegmentedControl* segmentedControl;
+@property (nonatomic, strong) IBOutlet NSArrayController* filesController;
+@property (nonatomic, strong) IBOutlet NSArrayController* presetsController;
+@property (nonatomic, strong) IBOutlet NSTableView* presetsView;
+@property (nonatomic, strong) IBOutlet NSSegmentedControl* segmentedControl;
 @property (readonly) NSUndoManager* undoManager;
 
 - (void)checkSegmentEnabled;

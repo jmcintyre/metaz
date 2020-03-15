@@ -17,14 +17,6 @@
 @synthesize leftButton;
 @synthesize rightButton;
 
-- (void)dealloc
-{
-    [retryButton release];
-    [indicator release];
-    [error release];
-    [super dealloc];
-}
-
 - (void)awakeFromNib
 {
     actionHack = [self action];
@@ -37,7 +29,6 @@
     status = newStatus;
     if(status != MZErrorPosterImage)
     {
-        [error release];
         error = nil;
     }
     if(status != MZOKPosterImage)
@@ -62,8 +53,7 @@
 {
     [self willChangeValueForKey:@"imageSize"];
     status = MZErrorPosterImage;
-    [error release];
-    error = [theError retain];
+    error = theError;
     MZLoggerError(@"Poster error: %ld %@", (long)[error code], [error domain]);
     MZLoggerError(@"    Description - %@", [error localizedDescription]);
     MZLoggerError(@"    Reason - %@", [error localizedFailureReason]);

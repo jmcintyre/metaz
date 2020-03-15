@@ -20,24 +20,12 @@
     return [super initWithWindowNibName:@"PreferencesWindow"];
 }
 
-- (void)dealloc
-{
-    [pluginsButton release];
-    [foldersButton release];
-    [generalView release];
-    [fileView release];
-    [pluginsView release];
-    [views release];
-    [toolbar release];
-    [super dealloc];
-}
-
 - (void)awakeFromNib
 {
     views = [[NSArray alloc] initWithObjects:generalView, fileView, pluginsView, nil];
     [pluginsButton setImage:[[NSWorkspace sharedWorkspace] iconForFileType:@"mzactions"]];
     [foldersButton setImage:[[NSWorkspace sharedWorkspace] iconForFileType:(NSString*)kUTTypeFolder]];
-    toolbar = [[pluginsButton toolbar] retain];
+    toolbar = [pluginsButton toolbar];
     
     int idx = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedPreferenceItem"];
     if(idx<0 || idx>=[views count])

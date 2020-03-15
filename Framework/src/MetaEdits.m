@@ -23,7 +23,7 @@
 #pragma mark - initialization
 + (id)editsWithProvider:(id<MetaData>)aProvider;
 {
-    return [[[self alloc] initWithProvider:aProvider] autorelease];
+    return [[self alloc] initWithProvider:aProvider];
 }
 
 - (id)initWithProvider:(id<MetaData>)aProvider {
@@ -31,7 +31,7 @@
     if(self)
     {
         undoManager = [[MetaEditsUndoManager alloc] init];
-        provider = [aProvider retain];
+        provider = aProvider;
         changes = [[NSMutableDictionary alloc] init];
         pure = [[PureMetaEdits alloc] initWithEdits:self];
 
@@ -62,11 +62,6 @@
     NSArray* tags = [provider providedTags];
     for(MZTag *tag in tags)
         [provider removeObserver:self forKeyPath: [tag identifier]];
-    [pure dealloc];
-    [changes release];
-    [provider release];
-    [undoManager release];
-    [super dealloc];
 }
 
 - (id)owner
@@ -378,7 +373,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    id ret = [[provider copyWithZone:zone] autorelease];
+    id ret = [provider copyWithZone:zone];
     MetaEdits* copy = [[MetaEdits allocWithZone:zone] initWithProvider:ret];
     [copy->changes addEntriesFromDictionary:changes];
     return copy;

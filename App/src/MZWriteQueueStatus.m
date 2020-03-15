@@ -23,7 +23,7 @@
 
 + (id)statusWithEdits:(MetaEdits *)edits
 {
-    return [[[self alloc] initWithEdits:edits] autorelease];
+    return [[self alloc] initWithEdits:edits];
 }
 
 - (id)initWithEdits:(MetaEdits *)theEdits
@@ -31,19 +31,11 @@
     self = [super init];
     if(self)
     {
-        edits = [theEdits retain];
+        edits = theEdits;
         [edits prepareForQueue];
         status = NSLocalizedString(@"Waiting to start", @"Write queue status text");
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [edits release];
-    [controller release];
-    [status release];
-    [super dealloc];
 }
 
 - (void)startWriting
@@ -56,7 +48,7 @@
         //[self didChangeValueForKey:@"percent"];
     }
     //[self willChangeValueForKey:@"writing"];
-    controller = [[[MZPluginController sharedInstance] saveChanges:edits delegate:self] retain];
+    controller = [[MZPluginController sharedInstance] saveChanges:edits delegate:self];
     self.writing = 1;
     //[self didChangeValueForKey:@"writing"];
     if(!controller)
@@ -261,7 +253,6 @@ writeStartedForEdits:(MetaEdits *)edits
                     NSInteger returnCode = [alert runModal];
                     if([alert showsSuppressionButton])
                         applyToAll = [[alert suppressionButton] state] == NSOnState;
-                    [alert release];
                     if(returnCode == NSAlertFirstButtonReturn)
                         handling = KeepTempFileTrashHandling;
                     else

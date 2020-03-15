@@ -41,24 +41,24 @@
 
 + (id)taskOperation
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 + (id)taskOperationWithTask:(NSTask *)task
 {
-    return [[[self alloc] initWithTask:task] autorelease];
+    return [[self alloc] initWithTask:task];
 }
 
 - (id)init
 {
-    return [self initWithTask:[[[NSTask alloc] init] autorelease]];
+    return [self initWithTask:[[NSTask alloc] init]];
 }
 
 - (id)initWithTask:(NSTask *)theTask
 {
     self = [super init];
     if(self) {
-        task = [theTask retain];
+        task = theTask;
         standardErrorReason = YES;
     }
     return self;
@@ -72,8 +72,6 @@
                     object:task];
     [self releaseStandardOutput];
     [self releaseStandardError];
-    [task release];
-    [super dealloc];
 }
 
 @synthesize executing;
@@ -298,9 +296,9 @@
 {
     if(self.standardErrorReason) {
         NSData* data = [[[self standardError] fileHandleForReading] readDataToEndOfFile];
-        NSString* errStr = [[[NSString alloc]
+        NSString* errStr = [[NSString alloc]
                                 initWithData:data
-                                encoding:NSUTF8StringEncoding] autorelease];
+                                encoding:NSUTF8StringEncoding];
         errStr = [errStr stringByTrimmingCharactersInSet:
                   [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if([errStr length] > 0)
@@ -344,9 +342,9 @@
 {
     NSData* data = [[note userInfo]
             objectForKey:NSFileHandleNotificationDataItem];
-    NSString* str = [[[NSString alloc]
+    NSString* str = [[NSString alloc]
             initWithData:data
-                encoding:NSUTF8StringEncoding] autorelease];
+                encoding:NSUTF8StringEncoding];
 
     if([str length] > 0)
         MZLoggerDebug(@"%@ stdout %@", [[task launchPath] lastPathComponent], str);
@@ -362,9 +360,9 @@
 {
     NSData* data = [[note userInfo]
             objectForKey:NSFileHandleNotificationDataItem];
-    NSString* str = [[[NSString alloc]
+    NSString* str = [[NSString alloc]
             initWithData:data
-                encoding:NSUTF8StringEncoding] autorelease];
+                encoding:NSUTF8StringEncoding];
 
     if([str length] > 0)
         MZLoggerDebug(@"%@ stderr %@", [[task launchPath] lastPathComponent], str);
@@ -380,11 +378,6 @@
 
 @implementation MZFileTaskOperation
 
-- (void)dealloc
-{
-    [file release];
-    [super dealloc];
-}
 @synthesize file;
 
 - (NSError *)willError:(NSError *)error
@@ -404,12 +397,6 @@
 @end
 
 @implementation MZParseTaskOperation
-
-- (void)dealloc
-{
-    [data release];
-    [super dealloc];
-}
 
 @synthesize data;
 @synthesize terminated;
@@ -463,9 +450,9 @@
 {
     NSData* outdata = [[note userInfo]
                     objectForKey:NSFileHandleNotificationDataItem];
-    NSString* str = [[[NSString alloc]
+    NSString* str = [[NSString alloc]
                       initWithData:outdata
-                      encoding:NSUTF8StringEncoding] autorelease];
+                      encoding:NSUTF8StringEncoding];
     if([str length] > 0)
         MZLoggerDebug(@"%@ stdout %@", [[task launchPath] lastPathComponent], str);
 

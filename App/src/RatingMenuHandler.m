@@ -29,16 +29,6 @@
     [d removeObserver:self forKeyPath:@"ratingAU"];
     [d removeObserver:self forKeyPath:@"ratingNZ"];
     [observerFix removeObserver:self forKeyPath:@"selection.rating"];
-    [ratingButton release];
-    [menuUK release];
-    [menuDE release];
-    [menuIE release];
-    [menuCA release];
-    [menuAU release];
-    [menuNZ release];
-    [filesController release];
-    [observerFix release];
-    [super dealloc];
 }
 
 - (void)awakeFromNib
@@ -147,37 +137,37 @@ MZRating findRating(int found, NSMenu* menu, NSString* title)
     {
         [menu addItem:[NSMenuItem separatorItem]];
         for(NSMenuItem* item in [menuUK itemArray])
-            [menu addItem:[[item copy] autorelease]];
+            [menu addItem:[item copy]];
     }
     if([d boolForKey:@"ratingDE"])
     {
         [menu addItem:[NSMenuItem separatorItem]];
         for(NSMenuItem* item in [menuDE itemArray])
-            [menu addItem:[[item copy] autorelease]];
+            [menu addItem:[item copy]];
     }
     if([d boolForKey:@"ratingIE"])
     {
         [menu addItem:[NSMenuItem separatorItem]];
         for(NSMenuItem* item in [menuIE itemArray])
-            [menu addItem:[[item copy] autorelease]];
+            [menu addItem:[item copy]];
     }
     if([d boolForKey:@"ratingCA"])
     {
         [menu addItem:[NSMenuItem separatorItem]];
         for(NSMenuItem* item in [menuCA itemArray])
-            [menu addItem:[[item copy] autorelease]];
+            [menu addItem:[item copy]];
     }
     if([d boolForKey:@"ratingAU"])
     {
         [menu addItem:[NSMenuItem separatorItem]];
         for(NSMenuItem* item in [menuAU itemArray])
-            [menu addItem:[[item copy] autorelease]];
+            [menu addItem:[item copy]];
     }
     if([d boolForKey:@"ratingNZ"])
     {
         [menu addItem:[NSMenuItem separatorItem]];
         for(NSMenuItem* item in [menuNZ itemArray])
-            [menu addItem:[[item copy] autorelease]];
+            [menu addItem:[item copy]];
     }
 }
 

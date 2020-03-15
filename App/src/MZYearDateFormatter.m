@@ -35,12 +35,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [dateFormatter release];
-    [super dealloc];
-}
-
 - (NSString *)stringForObjectValue:(id)obj;
 {
     if([obj isKindOfClass:[NSNumber class]])

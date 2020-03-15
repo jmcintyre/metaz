@@ -13,7 +13,7 @@
 
 + (id)taskWithFileName:(NSString *)fileName chaptersFile:(NSString *)chaptersFile
 {
-    return [[[self alloc] initWithFileName:fileName chaptersFile:chaptersFile] autorelease];
+    return [[self alloc] initWithFileName:fileName chaptersFile:chaptersFile];
 }
 
 - (id)initWithFileName:(NSString *)fileName chaptersFile:(NSString *)theChaptersFile
@@ -21,7 +21,7 @@
     self = [super init];
     if(self)
     {
-        chaptersFile = [theChaptersFile retain];
+        chaptersFile = theChaptersFile;
         if([chaptersFile length] == 0)
             [self setArguments:[NSArray arrayWithObjects:@"-r", fileName, nil]];
         else
@@ -58,7 +58,7 @@
                     delegate:(id<MZDataWriteDelegate>)delegate
                        edits:(MetaEdits *)edits
 {
-    return [[[self alloc] initWithProvider:provider delegate:delegate edits:edits] autorelease];
+    return [[self alloc] initWithProvider:provider delegate:delegate edits:edits];
 }
 
 - (id)initWithProvider:(AtomicParsleyPlugin *)theProvider
@@ -68,9 +68,9 @@
     self = [super init];
     if(self)
     {
-        provider = [theProvider retain];
-        delegate = [theDelegate retain];
-        edits = [theEdits retain];
+        provider = theProvider;
+        delegate = theDelegate;
+        edits = theEdits;
     }
     return self;
 }
@@ -105,7 +105,7 @@
 + (id)taskWithController:(APWriteOperationsController*)controller
              pictureFile:(NSString *)file
 {
-    return [[[self alloc] initWithController:controller pictureFile:file] autorelease];
+    return [[self alloc] initWithController:controller pictureFile:file];
 }
 
 - (id)initWithController:(APWriteOperationsController*)theController
@@ -114,8 +114,8 @@
     self = [super init];
     if(self)
     {
-        controller = [theController retain];
-        pictureFile = [file retain];
+        controller = theController;
+        pictureFile = file;
     }
     return self;
 }
@@ -145,9 +145,9 @@
         return;
     NSData* data = [[note userInfo]
             objectForKey:NSFileHandleNotificationDataItem];
-    NSString* str = [[[NSString alloc]
+    NSString* str = [[NSString alloc]
             initWithData:data
-                encoding:NSUTF8StringEncoding] autorelease];
+                encoding:NSUTF8StringEncoding];
     NSString* origStr = str;
     str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if([str hasPrefix:@"Started writing to temp file."])

@@ -28,7 +28,7 @@ enum {
 
 + (id)pluginWithURL:(NSURL *)url;
 {
-    return [[[self alloc] initWithURL:url] autorelease];
+    return [[self alloc] initWithURL:url];
 }
 
 - (id)initWithURL:(NSURL *)theURL;
@@ -37,19 +37,12 @@ enum {
     self = [super initWithBundle:bundle];
     if(self)
     {
-        url = [theURL retain];
-        identifier = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
+        url = theURL;
+        identifier = [[[url path] lastPathComponent] stringByDeletingPathExtension];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [url release];
-    [identifier release];
-    [script release];
-    [super dealloc];
-}
 
 @synthesize url;
 @synthesize script;
@@ -183,10 +176,10 @@ enum {
     NSString* displayName = [[[edits loadedFileName] lastPathComponent] stringByDeletingPathExtension];
     NSScriptClassDescription *containerClassDesc = (NSScriptClassDescription *)
         [NSScriptClassDescription classDescriptionForClass:[NSApplication class]];// 1
-    NSScriptObjectSpecifier* spec = [[[NSNameSpecifier alloc]
+    NSScriptObjectSpecifier* spec = [[NSNameSpecifier alloc]
         initWithContainerClassDescription:containerClassDesc
         containerSpecifier:nil key:@"queueDocuments"
-        name:displayName] autorelease];
+        name:displayName];
     
     ProcessSerialNumber psn = {0, kCurrentProcess};
     NSAppleEventDescriptor* event = [AEVT class:keyMZQueueItem id:keyMZStarted target:psn,
@@ -208,10 +201,10 @@ enum {
     NSString* displayName = [[[edits loadedFileName] lastPathComponent] stringByDeletingPathExtension];
     NSScriptClassDescription *containerClassDesc = (NSScriptClassDescription *)
         [NSScriptClassDescription classDescriptionForClass:[NSApplication class]];// 1
-    NSScriptObjectSpecifier* spec = [[[NSNameSpecifier alloc]
+    NSScriptObjectSpecifier* spec = [[NSNameSpecifier alloc]
         initWithContainerClassDescription:containerClassDesc
         containerSpecifier:nil key:@"queueDocuments"
-        name:displayName] autorelease];
+        name:displayName];
     
     ProcessSerialNumber psn = {0, kCurrentProcess};
     NSAppleEventDescriptor* event = [AEVT class:keyMZQueueItem id:keyMZCompleted target:psn,
@@ -236,10 +229,10 @@ enum {
     NSString* displayName = [[[edits loadedFileName] lastPathComponent] stringByDeletingPathExtension];
     NSScriptClassDescription *containerClassDesc = (NSScriptClassDescription *)
         [NSScriptClassDescription classDescriptionForClass:[NSApplication class]];// 1
-    NSScriptObjectSpecifier* spec = [[[NSNameSpecifier alloc]
+    NSScriptObjectSpecifier* spec = [[NSNameSpecifier alloc]
         initWithContainerClassDescription:containerClassDesc
         containerSpecifier:nil key:@"queueDocuments"
-        name:displayName] autorelease];
+        name:displayName];
         
     NSError* error = [[note userInfo] objectForKey:MZNSErrorKey];
 
@@ -279,10 +272,10 @@ enum {
         NSString* displayName = [[[edits loadedFileName] lastPathComponent] stringByDeletingPathExtension];
         NSScriptClassDescription *containerClassDesc = (NSScriptClassDescription *)
             [NSScriptClassDescription classDescriptionForClass:[NSApplication class]];// 1
-        NSScriptObjectSpecifier* spec = [[[NSNameSpecifier alloc]
+        NSScriptObjectSpecifier* spec = [[NSNameSpecifier alloc]
             initWithContainerClassDescription:containerClassDesc
             containerSpecifier:nil key:@"orderedDocuments"
-            name:displayName] autorelease];
+            name:displayName];
     
         ProcessSerialNumber psn = {0, kCurrentProcess};
         NSAppleEventDescriptor* event = [AEVT class:keyMZEvent id:keyMZOpenDoc target:psn,

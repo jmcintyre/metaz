@@ -124,7 +124,7 @@
     {
         id ret;
         [self getArgument:&ret atIndex:idx];
-        return [[ret retain] autorelease];
+        return ret;
     }
     else if(strcmp(methodReturnType, @encode(int)) == 0)
     {

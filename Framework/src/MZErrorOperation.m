@@ -16,8 +16,6 @@
     for(NSOperation* op in [self dependencies])
         if([op isKindOfClass:[MZErrorOperation class]])
             [op gtm_removeObserver:self forKeyPath:@"error" selector:@selector(errorChanged:)];
-    [error release];
-    [super dealloc];
 }
 
 @synthesize error;

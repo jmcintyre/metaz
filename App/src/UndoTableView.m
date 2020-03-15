@@ -10,12 +10,6 @@
 
 @implementation UndoTableView
 
-- (void)dealloc
-{
-    [editCancelHack release];
-    [super dealloc];
-}
-
 - (NSMenu *)menuForEvent:(NSEvent *)event
 {
     NSPoint event_location = [event locationInWindow];
@@ -47,11 +41,11 @@
     
     if(menu && [self menu])
     {
-        NSMenu* cp = [[[self menu] copy] autorelease];
+        NSMenu* cp = [[self menu] copy];
         for(NSMenuItem* item in [cp itemArray])
             [item setRepresentedObject:self];
         for(NSMenuItem* item in [menu itemArray])
-            [cp addItem:[[item copy] autorelease]];
+            [cp addItem:[item copy]];
         return cp;
     }
     if(menu)
@@ -121,14 +115,12 @@
 
 - (BOOL)textShouldBeginEditing:(NSText *)text
 {
-    [editCancelHack release];
     editCancelHack = [[text string] copy];
     return [super textShouldBeginEditing:text];
 }
 
 - (void)textDidEndEditing:(NSNotification *)aNotification
 {
-    [editCancelHack release];
     editCancelHack = nil;
     [super textDidEndEditing:aNotification];
 }

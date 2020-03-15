@@ -13,10 +13,8 @@
 
 - (void)dealloc
 {
-    [startTime release];
     [[NSNotificationCenter defaultCenter]
         removeObserver:self];
-    [super dealloc];
 }
 
 - (void)didLoad
@@ -57,7 +55,6 @@
 
 - (void)queueStarted:(NSNotification *)note
 {    
-    [startTime release];
     startTime = [[NSDate alloc] init];
 }
 

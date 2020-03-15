@@ -16,7 +16,7 @@
                     delegate:(id<MZDataReadDelegate>)delegate
                        extra:(NSDictionary *)extra
 {
-    return [[[[self class] alloc] initWithProvider:provider fromFileName:fileName delegate:delegate extra:extra] autorelease];
+    return [[[self class] alloc] initWithProvider:provider fromFileName:fileName delegate:delegate extra:extra];
 }
 
 - (id)initWithProvider:(MZDataProviderPlugin *)theProvider
@@ -27,9 +27,9 @@
     self = [super init];
     if(self)
     {
-        provider = [theProvider retain];
-        fileName = [theFileName retain];
-        delegate = [theDelegate retain];
+        provider = theProvider;
+        fileName = theFileName;
+        delegate = theDelegate;
         tagdict = [[NSMutableDictionary alloc] init];
         if(extra)
         {
@@ -46,15 +46,6 @@
         }
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [provider release];
-    [fileName release];
-    [delegate release];
-    [tagdict release];
-    [super dealloc];
 }
 
 @synthesize tagdict;
