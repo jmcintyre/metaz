@@ -103,7 +103,7 @@ import Foundation
                         let info = [NSLocalizedDescriptionKey: error.localizedDescription]
                         let statusCode = (resp as? HTTPURLResponse)?.statusCode ?? 0
                         
-                        responseError = NSError(domain: NSURLErrorDomain,
+                        responseError = NSError(domain: NetworkRequestErrorDomain,
                                                 code: statusCode,
                                                 userInfo: info)
                     } else if let response = resp {
@@ -111,13 +111,13 @@ import Foundation
                             downloadData = d
                         } else {
                             let info = [NSLocalizedDescriptionKey: String(format: "Unsupported Media Type '%@'", response.mimeType ?? "")]
-                            responseError = NSError(domain: NSURLErrorDomain,
+                            responseError = NSError(domain: NetworkRequestErrorDomain,
                                                     code: 415,
                                                     userInfo: info)
                         }
                     } else {
                         let info = [NSLocalizedDescriptionKey: String(format: "Unknown error with URL '%@'", url.absoluteString)]
-                        responseError = NSError(domain: NSURLErrorDomain,
+                        responseError = NSError(domain: NetworkRequestErrorDomain,
                                                 code: 416,
                                                 userInfo: info)
                     }
